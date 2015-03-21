@@ -1,0 +1,11 @@
+name = "Ascension"
+ammo = 1
+reload_time = 100
+sync_reload = false
+
+on primary_shoot()
+ delay_fire(100)
+ use_ammo(1)
+ add_speed(1.5)
+ play_sound(ascensionaffectior.wav, 100, 1, 0)
+ shoot_particles(ascensionweapon.obj, 1, 0.2, 0, 0, 0, 3, 0, -3)

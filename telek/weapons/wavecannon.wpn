@@ -1,0 +1,11 @@
+name = "Wave Cannon"
+skin = weapon_enhanced.png
+
+on primary_shoot()
+ run_script(telek.wave_cannon_charge)
+
+on active_timer( 0, max_trigger = 1 )
+ run_script(telek.wave_cannon_active)
+
+on primary_release()
+ run_script(telek.wave_cannon_release)

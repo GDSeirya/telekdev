@@ -1,0 +1,8 @@
+name = "Eclipse(INCOMPLETE)"
+ammo = 1
+sync_shot = true
+reload_time = 100
+
+on primary_shoot()
+ use_ammo(1)
+ shoot_particles(unused.obj, 1 , 1, 0, 0, 0, 0, 0, 0)

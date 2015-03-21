@@ -1,0 +1,172 @@
+>main#menu
+{
+	background: #000000;
+	border: #404040;
+	top: 25; left: 30; 
+	height: 190;
+	width: 150;
+	alpha: 255;
+}
+
+>main#win
+{
+	top: 5;
+	bottom: -5;
+	left: 5;
+	right: -5;
+}
+
+>main#titlehax
+{
+	top: 8;
+	border: #000000;
+	left: 20;
+	right: -20;
+	font-family: liero ;
+	height: 18;
+	background: #000000;
+    background-image: menuhax.bmp;
+	//border-bottom: #9f9f9f;
+}
+
+>main#titlehax:focused
+{
+	top: 8;
+	border: #000000;
+	left: 20;
+	right: -20;
+	font-family: liero ;
+	height: 18;
+	background: #000000;
+    background-image: menuhax.bmp;
+}
+
+>main#titlehax:active
+{
+	top: 8;
+	border: #000000;
+	left: 20;
+	right: -20;
+	font-family: liero ;
+	height: 18;
+	background: #000000;
+	background-image: menuhax.bmp;
+}
+
+>main#continue
+{
+	right: -5;
+	top: 5;
+	width: 10;
+	height: 10;
+}
+
+>main#clearStat
+{
+	right: -50;
+	top: 1;
+	width: 48;
+	height: 8;
+}
+
+>main#portfield
+{
+	right: -60;
+	top: 40;
+	width: 70;
+	height: 8;
+	background: #000020;
+}
+
+>main#selectPort
+{
+	right: -10;
+	top: 40;
+	width: 34;
+	height: 8;
+}
+
+>main#modlist
+{
+	border: #0000F0;
+	selection-color: #000F3F;
+	selection-frame-color: #0000AF;
+	header-color: #00A0FF;
+	background: #000020;
+	right: -10;
+	top: 50;
+	width: 120;
+	height: 48;
+}
+
+>main#modChoose
+{
+	right: -11;
+	top: 51;
+	width: 30;
+	height: 10;
+}
+
+>main#local
+{
+	right: -10;
+	left: 10;
+	bottom: -65;
+	height: 15;
+}
+
+>main#connect
+{
+	right: -10;
+	left: 10;
+	bottom: -45;
+	height: 15;
+}
+
+>main#host
+{
+	right: -10;
+	left: 10;
+	bottom: -25;
+	height: 15;
+}
+
+>main#quit
+{
+	right: -10;
+	left: 10;
+	bottom: -5;
+	height: 15;
+}
+
+>main#vsync
+{
+	right: -10;
+	left: 10;
+	bottom: 30;
+	height: 6;
+}
+
+>main#sfps
+{
+	right: -10;
+	left: 10;
+	bottom: 38;
+	height: 6;
+}
+
+>main#cblood
+{
+	right: -10;
+	left: 50;
+	bottom: 30;
+	height: 6;
+}
+
+#status
+{
+	right: -5;
+	height: 15;
+	bottom: -5;
+	left: 5;
+}

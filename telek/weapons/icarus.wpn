@@ -1,0 +1,14 @@
+name = "Icarus"
+
+on primary_press()
+ shoot_particles ( machinegun_bulletarrowset.obj , 1 , 1, 0, 0, 0, 0, 0, 25)
+ shoot_particles ( machinegun_bulletarrowset.obj , 1 , 1, 0, 0, 0, 0, 20, 50)
+ shoot_particles ( machinegun_bulletarrowset.obj , 1 , 1, 0, 0, 0, 0, -20, 50)
+ shoot_particles ( machinegun_bulletarrowset.obj , 1 , 1, 0, 0, 0, 0, 45, 40)
+ shoot_particles ( machinegun_bulletarrowset.obj , 1 , 1, 0, 0, 0, 0, -45, 40)
+
+on active_timer( 0,10)
+ shoot_particles ( icarussparkeffector.obj , 1 , 0, 0, 0, 0, 360, 0, 3)
+
+on active_timer( 70)
+ shoot_particles ( mubarriericarus.obj , 1)

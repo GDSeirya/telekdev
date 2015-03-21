@@ -1,0 +1,13 @@
+name = "Chaos Theory(INCOMPLETE)/(REMOVED)"
+reload_time = 100
+sync_shot = true
+sync_reload = false
+
+on primary_shoot()
+ delay_fire(100)
+ use_ammo(1)
+ play_sound( cloudstrikestrike.wav, 100, 1, 0 )
+ shoot_particles ( pikillereffect.obj , 1, 0.5, 0, 0, 0, 0, 0, 0)
+ 
+ on active_timer( 0 )
+ shoot_particles ( telek_torch_start.obj , 1, 1, 0, 0, 0, 0, 0, 5)

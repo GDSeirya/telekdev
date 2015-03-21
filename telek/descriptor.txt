@@ -1,0 +1,39 @@
+#DAMAGE
+N/A (GREY) (170, 170, 170)
+Menial (WHITE) (255, 255, 255)
+Low (BLUE) (98, 164, 216)
+Normal (GREEN) (26, 147, 6)
+Strong (YELLOW) (252, 208, 11)
+Powerful (ORANGE) (255, 164, 5)
+Destructive (PINK) (251, 62, 141)
+Terminal (PURPLE) (76, 19, 157)
+RED (220, 36, 31)
+
+#RoF
+
+Sluggish (WHITE)
+Slow (BLUE)
+Normal (GREEN)
+Fast (YELLOW)
+Quick (ORANGE)
+Rapid (PINK)
+Subsonic (PURPLE)
+CUSTOM NAME (RED)
+
+#Range
+Melee (WHITE)
+Local (BLUE)
+Normal (GREEN)
+Far (YELLOW)
+Distant (ORANGE)
+Subsniper (PINK)
+Sniper (PURPLE)
+
+#AoE
+Mini (WHITE)
+Small (BLUE)
+Normal (GREEN)
+Large (YELLOW
+Huge (ORANGE)
+Enormous (PINK)
+Massive (PURPLE)

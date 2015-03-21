@@ -1,0 +1,5 @@
+timeout = 0
+invisible = 1
+
+on detect_range (10, 0)
+ repel( -2.5 , 25, -1 )

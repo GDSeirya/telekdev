@@ -1,0 +1,6 @@
+sprite = telek_dust_explosion_mini.png
+blender = add
+alpha = 255
+dest_alpha = -1
+timeout = 32
+render_layer = 6

@@ -1,0 +1,12 @@
+name = "Enhanced BOUNCY LARPA"
+skin = weapon_enhanced.png
+ammo = 1
+sync_shot = true
+reload_time = 75
+sync_reload = false
+
+on primary_shoot()
+ delay_fire(75)
+ use_ammo(1)
+ play_sound( larpa.ogg, 100, 1, 0.05 )
+ shoot_particles ( telblarpa.obj , 1 , 1.8, 0, 0, 0, 0, 0, 9)

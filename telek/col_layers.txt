@@ -1,0 +1,15 @@
+LAYERS
+-1 non
+0 default bullets
+1 bullets
+2 blood
+3 telekinesis
+4
+5
+6
+7 death
+
+Event
+1~7 are meat
+8 is return bullets
+

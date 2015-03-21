@@ -1,0 +1,15 @@
+1. Weapon Skins
+2. Weapon Description (common.lua) You'll find it in notepad++//notepad
+Keep the convention as:
+weapon desc
+
+weapon desc 2
+
+company
+
+one liner
+3. Shaeiki (Do not touch)
+4. Debug for any bugs!!!
+5. Add in your template weapons (as awpn or as wpn with (incomplete) tag )
+6. Add in your weapon ideas here v _ _ _ _ v
+7. Attempt to make console icon better (if you want)

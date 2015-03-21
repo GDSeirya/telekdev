@@ -1,0 +1,9 @@
+timeout = 0
+invisible = 1
+
+on detect_range (100, 1, [0,1,2])
+ repel( 0.95 , 100, 0.75 )
+
+on detect_range (75, 1)
+ damage( 1.85 )
+ repel( 0.13 , 76, 0.05 )

@@ -1,0 +1,12 @@
+name = "No G(u)ard Live"
+reload_time = 170
+sync_shot = true
+sync_reload = false
+
+on primary_shoot()
+ delay_fire(170)
+ use_ammo(1)
+ shoot_particles ( noguardsaberswoofa.obj , 1 , 0.1, 0, 0, 0, 0, 0, 0)
+
+on active_timer( 0, max_trigger = 1 )
+  play_sound( nglactivateor.wav, 100, 1, 0 )

@@ -1,0 +1,11 @@
+name = "Vengeance"
+reload_time = 75
+sync_shot = true
+sync_reload = false
+
+on primary_shoot()
+ delay_fire(75)
+ use_ammo(1)
+ play_sound( eyeflickerofveng.wav, 100, 1, 0.05 )
+ shoot_particles ( vengencearrowdetector.obj , 1 , 2, 0, 0, 0, 0, 0, 0)
+ shoot_particles ( vengrandom.obj , 1 , 0.001, 0, 0, 0, 0, 0, 0)

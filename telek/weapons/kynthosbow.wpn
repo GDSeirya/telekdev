@@ -1,0 +1,11 @@
+name = "Kynthos Bow"
+reload_time = 170
+sync_shot = true
+sync_reload = false
+
+on primary_shoot()
+ delay_fire(170)
+ use_ammo(1)
+ shoot_particles ( ttfivearrowspiraladditive.obj , 1, 0.0001, 0, 0, 0, 0, 225, 20)
+ shoot_particles ( ttfivearrowspiraladditivetwo.obj , 1, 0.0001, 0, 0, 0, 0, -225, 20)
+ shoot_particles ( ttfivearrowsummonor.obj , 1 , 0.001, 0, 0, 0, 0, 0, 0)

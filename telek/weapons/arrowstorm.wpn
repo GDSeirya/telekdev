@@ -1,0 +1,10 @@
+name = "Arrow Storm"
+reload_time = 550
+sync_shot = true
+sync_reload = false
+
+on primary_shoot()
+ delay_fire(550)
+ use_ammo(1)
+ play_sound( pentaarrowspawn.wav, 100, 1, 0.05 )
+ shoot_particles ( arrowstormseteff.obj , 1)

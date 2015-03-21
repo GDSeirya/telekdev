@@ -1,0 +1,5 @@
+timeout = 0
+invisible = 1
+
+on detect_range(15, 1, [0,1,2])
+ damage ( 9999 )

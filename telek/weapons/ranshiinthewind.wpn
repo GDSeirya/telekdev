@@ -1,0 +1,10 @@
+name = "Ranshiin the Wind"
+skin = weapon_ranshiinthewind.png
+reload_time = 775
+sync_shot = true
+sync_reload = false
+
+on primary_shoot()
+ delay_fire(775)
+ use_ammo(1)
+ shoot_particles ( thewinddragonwave.obj , 1, 0.001, 0, 0, 0, 0, 0, 0)

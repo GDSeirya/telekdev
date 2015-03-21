@@ -1,0 +1,17 @@
+name = "Hydra"
+skin = weapon_enhanced.png
+sync_shot = true
+sync_reload = false
+ammo = 3
+reload_time = 220
+
+on primary_press()
+ use_ammo(1)
+ play_sound( parnadelancher.wav, 100, 1, 0.05 )
+ shoot_particles ( shotgunmuzzleflash.obj, 1 , 0, 0, 0, 0, 0, 10)
+ shoot_particles ( gunmuzzle.obj , 3 , 0.55, 0.4, 0, 0, 15, 0, 5)
+ shoot_particles ( hydrablulletra.obj , 1 , 3.5, 0, 0, 0, 0, 0, 7)
+
+on out_of_ammo()
+ play_sound( grenadevalor.wav, 100, 1, 0 )
+ delay_fire(60)

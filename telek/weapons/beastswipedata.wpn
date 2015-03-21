@@ -1,0 +1,11 @@
+name = "Beast Swipe Data"
+reload_time = 33
+sync_shot = true
+sync_reload = false
+
+on primary_shoot()
+ delay_fire(33)
+ use_ammo(1)
+ play_sound( fierybeast.wav, 100, 2.5, 0.05 )
+ play_sound( nightwavecannon.wav, 100, 1.75, 0.05 )
+ shoot_particles ( beastbeamrandom.obj , 1 , 0.0001, 0, 1.88, 0, 0, 0, 0)

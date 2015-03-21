@@ -1,0 +1,11 @@
+name = "Anaconda"
+skin = weapon_enhanced.png
+reload_time = 70
+sync_shot = true
+sync_reload = false
+
+on primary_shoot()
+ delay_fire(70)
+ use_ammo(1)
+ play_sound( bubbleenlguaca.wav, 100, 1, 0 )
+ shoot_particles ( anacondaacidicbubl.obj , 1, 0.001, 0, 0, 0, 0, 0, 5)

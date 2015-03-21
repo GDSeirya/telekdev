@@ -1,0 +1,17 @@
+name = "OR Genesis 9R34"
+skin = weapon_enhanced.png
+sync_shot = true
+reload_time = 50
+sync_reload = false
+ammo = 1
+
+on active_timer( 0, max_trigger = 1 )
+ play_sound( mirrorfreakerarme.wav, 100, 1, 0 )
+
+on primary_shoot()
+ delay_fire(50)
+ use_ammo(1)
+ play_sound( laserseventeenas.wav, 100, 1, 0.05 )
+ shoot_particles ( opheliaweaponbeama.obj , 1 , 0.32, 0, 0, 0, 0, 0, 5)
+ shoot_particles ( opheliaweaponbeamay.obj , 1 , 1, 0, 0, 0, 0, 90, 0)
+ shoot_particles ( opheliaweaponbeamayx.obj , 1 , 1, 0, 0, 0, 0, -90, 0)
