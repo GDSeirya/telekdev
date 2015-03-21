@@ -1,0 +1,9 @@
+blender = add
+col_layer = -1
+render_layer = 3
+sprite = auraplasmaia_small.png
+damping = 0
+alpha = 64
+
+on creation()
+ remove()

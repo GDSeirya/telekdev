@@ -1,0 +1,14 @@
+sprite = boreflash.png
+blender = add
+alpha = 255
+occluded = 1
+col_layer = -1 
+render_layer = 1
+light_radius = 50
+repeat = 2
+
+on creation()
+ set_alpha_fade(255,0)
+
+on timer( 255 )
+ remove()

@@ -1,0 +1,13 @@
+blender = add
+alpha = 6
+col_layer = -1
+render_layer = 3
+sprite =telek_wavecannon_bullet_light_5.png
+occluded = 1
+light_radius = 10
+
+on creation()
+ remove()
+
+#on timer( 32 )
+# remove()

@@ -1,0 +1,13 @@
+sprite = telekfloorshard.png
+anim_duration = 70
+anim_type = right_once
+anim_on_ground = 1
+damping = 0.96
+gravity = -0.071
+col_layer = -1
+
+on timer(70)
+ remove()
+
+on ground_collision()
+ remove()

@@ -1,0 +1,38 @@
+invisible = 1
+repeat = 20
+col_layer = -1
+
+on ground_collision()
+ play_sound( telacaoreojh.wav, 100, 1, 0 )
+ create_explosion ( ascensionstoperr.exp )
+ create_explosion ( ascenstionzetarayeff.exp )
+ shoot_particles ( unicornrippleeffect.obj , 1)
+ shoot_particles ( dusttraileffector.obj , 10 , 2, 2, 0, 0, 360, 0, 0)
+ shoot_particles ( dustparticlesz.obj , 70 , 0, 10, 0, 0, 360, 0, 0)
+ shoot_particles ( telekdirtsmoker.obj , 6 , 1.3, 1.3, 0, 0, 360, 0, 0)
+ shoot_particles ( telekdirtsmoker.obj , 9 , 1.7, 1.7, 0, 0, 360, 0, 0)
+ shoot_particles ( telekdirtsmoker.obj , 11 , 2.5, 2.5, 0, 0, 360, 0, 0)
+ create_explosion( unicorneffectblow.exp )
+ remove()
+
+on timer(0)
+ create_explosion ( ascensiongravitywelleffec.exp )
+
+on timer(13)
+ shoot_particles ( ascensionglow.obj , 1)
+
+on timer(1)
+ shoot_particles ( ascensionergjwrg.obj , 1 , -0.5, 0, 0, 0, 360, 0, 10)
+  apply_map_effect( borehlargehole.mfx )
+
+on timer(15)
+ shoot_particles ( theglowaftertailfas.obj , 1)
+
+on timer(750)
+ create_explosion ( ascensionstoperr.exp )
+ create_explosion ( ascenstionzetarayeff.exp )
+ remove()
+
+on detect_range (6, 0)
+ damage( 0.18533 )
+

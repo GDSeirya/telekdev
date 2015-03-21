@@ -1,0 +1,12 @@
+alpha = 32
+col_layer = -1
+invisible = 1
+occluded = 1
+repeat = 4
+light_radius = 15
+
+on creation()
+ set_alpha_fade(32,0)
+
+on timer( 32 )
+ remove()

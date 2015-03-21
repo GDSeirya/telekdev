@@ -1,0 +1,16 @@
+blender = add
+sprite = kynthosarrowraygunr.png
+alpha = 32
+anim_duration = 5
+anim_type = right_once
+anim_on_ground = 1
+col_layer = -1
+
+on creation()
+ set_alpha_fade( 5 , 0 )
+
+on ground_collision()
+ remove()
+
+on timer(5)
+ remove()

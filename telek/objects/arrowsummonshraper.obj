@@ -1,0 +1,9 @@
+col_layer = -1
+invisible = 1
+repeat = 200
+
+on timer(20,100)
+ play_sound( godsendarrowrainor.wav, 65, 1, 0.05 )
+ shoot_particles ( arrowshanoabulletraz1.obj , 1)
+ remove()
+

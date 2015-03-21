@@ -1,0 +1,41 @@
+repeat = 4
+col_layer = -1
+invisible = 1
+
+on creation()
+ shoot_particles ( telek_wavecannon_small_trail.obj, 20, 0.5, 0.5, 1, 1, 360, 0, 0)
+ shoot_particles ( telek_wavecannon_small_nova.obj, 5, 0.85, 2, 0, 0, 35, 0, 0)
+ shoot_particles ( telek_wavecannon_small_nova_mini.obj, 10, 1.7, 4, 0, 0, 35, 0, 0)
+
+on ground_collision()
+ shoot_particles ( telek_wavecannon_bullet_trail.obj, 20, 0.5, 0.5, 1, 1, 360, 0, 0)
+ shoot_particles ( telek_wavecannon_small_nova_mini.obj, 30, 4, 6, 0, 0, 360, 0, 0)
+ shoot_particles ( telek_wavecannon_small_nova_end.obj, 1)
+
+ uniform_shoot_particles( telek_wavecannon_beam_nova.obj, 90, 4, 0, 0, 0, 360, 0, 0)
+ 
+ shoot_particles( telek_wavecannon_beam_nova.obj, 14, 4, 6, 0, 0, 360, 0, 0)
+ create_explosion( telek_wavecannon_beam.exp )
+ shoot_particles ( telek_light_hitend_4.obj , 1)
+ remove()
+
+ on timer(1)
+ shoot_particles ( telek_light_wave_4.obj , 1)
+ 
+on timer(0)
+ shoot_particles ( telek_wavecannon_beam_trail.obj, 1, 0, 0, 0, 0, 0, 0, 0)
+ shoot_particles ( telek_wavecannon_bullet_trail_light_4.obj, 1)
+
+on detect_range(10, 0)
+ shoot_particles ( telek_wavecannon_bullet_trail.obj, 20, 0.5, 0.5, 1, 1, 360, 0, 0)
+ shoot_particles ( telek_wavecannon_small_nova_mini.obj, 30, 4, 6, 0, 0, 360, 0, 0)
+ shoot_particles ( telek_wavecannon_small_nova_end.obj, 1)
+
+ uniform_shoot_particles( telek_wavecannon_beam_nova.obj, 90, 4, 0, 0, 0, 360, 0, 0)
+ 
+ shoot_particles( telek_wavecannon_beam_nova.obj, 14, 4, 6, 0, 0, 360, 0, 0)
+ create_explosion( telek_wavecannon_beam.exp )
+ shoot_particles ( telek_light_hitend_4.obj , 1)
+#push ( 0.1 )
+ shoot_particles ( bloodgen.obj , 10 , 0.5, 1, 0.5 )
+ remove()

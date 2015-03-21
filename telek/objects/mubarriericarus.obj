@@ -1,0 +1,12 @@
+invisible = 1
+col_layer = -1
+
+on timer(1)
+ remove()
+
+on detect_range(75, 0)
+ play_sound( grandrepel.wav, 20, 1, 0 )
+ uniform_shoot_particles ( murepellericarus.obj , 100 , 1.5, 0, 0, 0, 360, 0, 0)
+ shoot_particles ( icarussparkeffectorx.obj , 50 ,  0.5, 0, 0, 0)
+ shoot_particles ( icarussparkeffectorx.obj , 30 ,  0.5, 1, 0, 0)
+ remove()

@@ -1,0 +1,8 @@
+blender = alpha
+col_layer = -1
+render_layer = 3
+sprite = sharkfinracei_13.png
+damping = 0
+
+on creation()
+ remove()

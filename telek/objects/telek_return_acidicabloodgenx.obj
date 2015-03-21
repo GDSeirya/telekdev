@@ -1,0 +1,14 @@
+gravity = 0.037
+colour = [0, 230, 0]
+col_layer = 1
+health = 1
+bounce_factor=0.3
+
+on timer(70, 50)
+ remove()
+
+on ground_collision()
+ remove()
+
+on timer(5)
+ shoot_particles ( telek_return_acidicablood.obj , 1 , 0 , 0.2, 0.5, 0, 0, 0,0)

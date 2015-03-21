@@ -1,0 +1,13 @@
+sprite = fallingarroweffectoraend.png
+gravity = 0.2
+max_speed = 0.0011
+col_layer = -1
+render_layer = 4
+blender = alpha
+alpha = 153
+bounce_factor = 0
+ground_friction = 0
+
+on timer( 3 )
+ shoot_particles ( arrowshanoaend3.obj , 1 , 0, 0, 1, 0, 0, 0, 0)
+ remove()

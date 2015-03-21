@@ -1,0 +1,12 @@
+invisible = 1
+col_layer = -1
+damping = 0
+
+on timer(1)
+ shoot_particles ( shotgunelecksparkx.obj , 3 , 1.6, 1.6, 0, 0, 360, 0, 0)
+  shoot_particles ( shotgunelecksparkx.obj , 6 , 0.6, 0.6, 0, 0, 360, 0, 0)
+ remove()
+
+on detect_range(1, 0)
+ shoot_particles ( bloodgen.obj , 2, 2, 1, 0, 0, 15, -100, 0)
+ remove()

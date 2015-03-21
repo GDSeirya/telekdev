@@ -1,0 +1,14 @@
+repeat = 20
+col_layer = -1
+invisible = 1
+gravity = -0.08
+damping = 0.9
+
+on ground_collision()
+ remove()
+
+on timer(140)
+ remove()
+
+on timer(0,17)
+ shoot_particles ( vengenceparticle.obj , 1 , 0, 0.2, 0, 0, 360, 0, 0)

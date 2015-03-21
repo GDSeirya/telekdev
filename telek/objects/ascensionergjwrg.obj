@@ -1,0 +1,14 @@
+sprite = ascensioncustomgrafkog.png
+blender = add
+alpha = 5
+occluded = 1
+col_layer = 1 
+anim_duration = 32
+anim_type = right
+render_layer = 0
+
+on timer(32)
+ remove()
+
+on timer( 16, max_trigger = 1 )
+set_alpha_fade(16,0)

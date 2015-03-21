@@ -1,0 +1,24 @@
+col_layer = -1 
+sprite = arrowpointershanoia.png
+anim_duration = 50
+anim_type = right_once
+anim_on_ground = 1
+damping = 0
+blender = alpha
+alpha = 255
+render_layer = 3
+
+on creation()
+ play_sound( arrowwarpstartra.wav, 100, 1, 0.05 )
+
+on timer( 35, max_trigger = 1 )
+ play_sound( godsendarrowrainor.wav, 100, 1, 0.05 )
+
+on timer( 40, max_trigger = 1 )
+ shoot_particles ( machinegun_bulletarrow.obj , 1 , 2, 0, 0, 0, 10, 0, 7)
+
+on timer( 50, max_trigger = 1 )
+ set_alpha_fade(10,0)
+
+on timer( 60 )
+ remove()

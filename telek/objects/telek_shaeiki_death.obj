@@ -1,0 +1,8 @@
+col_layer = -1
+invisible = 1
+
+on timer(0)
+ create_explosion ( telek_shaeiki_detect.exp )
+
+on timer(15)
+ remove()

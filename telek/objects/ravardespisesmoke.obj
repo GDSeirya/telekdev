@@ -1,0 +1,18 @@
+sprite = ravardespisesmoke.png
+blender = alphach
+alpha = 100
+anim_duration = 45
+anim_type = right_once
+anim_on_ground = 1
+render_layer = 7
+col_layer = 1
+repeat = 3
+light_radius = 50
+
+damping = 0.96
+
+on timer( 20, max_trigger = 1 )
+set_alpha_fade(80,2)
+
+on timer( 100 )
+remove ()

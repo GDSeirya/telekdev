@@ -1,0 +1,24 @@
+invisible = 1
+repeat = 13
+col_layer = -1
+
+on ground_collision()
+ shoot_particles ( arrowsparkeffectram.obj , 13 , 0.6, 0.6, 0, 0, 360, 0, 0)
+ play_sound( arrowhiteffectora.wav, 100, 1, 0.05 )
+ shoot_particles ( machinegun_bulletarrowendraxa.obj , 1, 0.0001, 0, 0, 0, 0, 0, 0)
+ remove()
+
+on timer(0)
+ create_explosion ( plasmatraileffearrow.exp )
+ 
+on timer(3)
+ shoot_particles ( invisilighto.obj, 1)
+
+on detect_range(1, 0)
+ shoot_particles ( forneousbloodsplashfx.obj, 1)
+ play_sound_static( [chaoshit1.wav, chaoshit2.wav, chaoshit3.wav, chaoshit4.wav], 100 )
+ damage ( 15.7 )
+ push ( 0.4 )
+ shoot_particles ( bloodgen.obj , 10 , 0.5, 1, 0.5 )
+ shoot_particles ( bloodsprayrange.obj , 1, 1, 0.5, 0, 0, 50, 0, 0)
+ remove()

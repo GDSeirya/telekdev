@@ -1,0 +1,59 @@
+col_layer = -1
+damping = 0
+invisible = 1
+repeat = 6
+
+on creation()
+ add_angle_speed(2)
+
+on timer( 100, max_trigger = 1 )
+ add_angle_speed(-1)
+
+on timer( 260, max_trigger = 1 )
+ add_angle_speed(-1.5)
+
+on timer( 10, max_trigger = 10 )
+ shoot_particles ( spinningarroweffectra.obj , 1, 0.0001, 0, 0, 0, 0, 90, 20)
+
+on timer( 120, max_trigger = 1 )
+ shoot_particles ( spinningarroweffectra.obj , 1, 0.0001, 0, 0, 0, 0, 90, 18)
+
+on timer( 140, max_trigger = 1 )
+ shoot_particles ( spinningarroweffectra.obj , 1, 0.0001, 0, 0, 0, 0, 90, 16)
+
+on timer( 160, max_trigger = 1 )
+ shoot_particles ( spinningarroweffectra.obj , 1, 0.0001, 0, 0, 0, 0, 90, 14)
+
+on timer( 180, max_trigger = 1 )
+ shoot_particles ( spinningarroweffectra.obj , 1, 0.0001, 0, 0, 0, 0, 90, 12)
+
+on timer( 200, max_trigger = 1 )
+ shoot_particles ( spinningarroweffectra.obj , 1, 0.0001, 0, 0, 0, 0, 90, 10)
+
+on timer( 220, max_trigger = 1 )
+ shoot_particles ( spinningarroweffectra.obj , 1, 0.0001, 0, 0, 0, 0, 90, 8)
+
+on timer( 240, max_trigger = 1 )
+ shoot_particles ( spinningarroweffectra.obj , 1, 0.0001, 0, 0, 0, 0, 90, 6)
+
+on timer( 260, max_trigger = 1 )
+ shoot_particles ( spinningarroweffectra.obj , 1, 0.0001, 0, 0, 0, 0, 90, 4)
+
+on timer( 280, max_trigger = 1 )
+ shoot_particles ( spinningarroweffectra.obj , 1, 0.0001, 0, 0, 0, 0, 90, 2)
+
+on timer( 300, max_trigger = 1 )
+ shoot_particles ( spinningarroweffectra.obj , 1, 0.0001, 0, 0, 0, 0, 90, 0)
+
+on timer( 340, max_trigger = 1 )
+ shoot_particles ( spinningarroweffectra.obj , 1, 0.0001, 0, 0, 0, 0, 90, -4)
+
+on timer( 380, max_trigger = 1 )
+ shoot_particles ( spinningarroweffectra.obj , 1, 0.0001, 0, 0, 0, 0, 90, -8)
+
+on timer( 420, max_trigger = 1 )
+ shoot_particles ( spinningarroweffectra.obj , 1, 0.0001, 0, 0, 0, 0, 90, -12)
+
+on timer( 460, max_trigger = 1 )
+ shoot_particles ( spinningarroweffectra.obj , 1, 0.0001, 0, 0, 0, 0, 90, -16)
+ remove()

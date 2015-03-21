@@ -1,0 +1,12 @@
+repeat = 50
+col_layer = -1
+invisible = 1
+
+on ground_collision()
+ remove()
+
+on timer(5,15)
+ remove()
+
+on timer(0)
+ shoot_particles ( dragonsubtail3_2.obj , 1 , 0, 0, 0, 0, 0, 0, 0)

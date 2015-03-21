@@ -1,0 +1,7 @@
+blender = alpha
+col_layer = -1
+render_layer = 5
+sprite = telek_balloon.png
+
+on creation()
+ remove()

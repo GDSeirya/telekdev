@@ -1,0 +1,13 @@
+blender = alpha
+alpha = 255
+col_layer = -1
+colour = [180, 0, 0]
+
+on timer( 1020, max_trigger = 1 )
+ set_alpha_fade(255,0)
+
+on timer( 1275 )
+ remove()
+
+on timer(55, 1510)
+ shoot_particles ( blood.obj , 1 , 0.001 , 0.001, 0, 0, 360, 0, 1)

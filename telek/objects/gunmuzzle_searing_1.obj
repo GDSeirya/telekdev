@@ -1,0 +1,13 @@
+invisible = 1
+bounce_factor = 1
+repeat = 20
+col_layer = -1
+
+on ground_collision()
+ remove()
+
+on timer(40,40)
+ remove()
+
+on timer(1)
+ shoot_particles ( gunmuzzletrail_searing.obj , 1 )

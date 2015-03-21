@@ -1,0 +1,9 @@
+sprite = yzglow.png
+blender = add
+alpha = 128
+occluded = 1
+col_layer = -1 
+render_layer= 5
+
+on timer( 1 )
+remove()

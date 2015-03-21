@@ -1,0 +1,12 @@
+invisible = 1
+col_layer = -1
+
+on timer(0)
+ shoot_particles ( vengenceparticlealpha20.obj , 1)
+
+on timer(5,7)
+ shoot_particles ( vengenceparticlefire.obj , 1)
+
+on timer(10)
+ shoot_particles ( vengencearrowdetector1.obj , 1)
+ remove()

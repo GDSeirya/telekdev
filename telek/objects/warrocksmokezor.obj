@@ -1,0 +1,19 @@
+sprite = teleksmoke.png
+blender = alphach
+alpha = 128
+gravity = 0.0006
+render_layer = 5
+col_layer = -1
+damping = 0.9735
+repeat = 4
+bounce_factor = 0
+ground_friction = 1
+anim_duration = 100
+anim_type = right_once
+anim_on_ground = 1
+
+on timer( 100,100, max_trigger = 1 )
+set_alpha_fade(150,0)
+
+on timer( 350 )
+remove ()

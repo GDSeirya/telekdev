@@ -1,0 +1,15 @@
+sprite = arrowspiralereffectra.png
+anim_duration = 30
+anim_type = loop_right
+anim_on_ground = 1
+col_layer = -1
+damping = 0
+bounce_factor = 0
+ground_friction = 0
+render_layer = 3
+
+on timer(5)
+ shoot_particles ( spinningarroweffectrax.obj , 1, 0.0001, 0, 0, 0, 0, 0, 0)
+
+on timer(90)
+ remove()

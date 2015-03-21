@@ -1,0 +1,16 @@
+colour = [128,232,255]
+blender = add
+wu_pixels = 1
+gravity = 0.01
+repeat = 1
+alpha = 100
+render_layer = 4
+
+on creation()
+ set_alpha_fade(100,0)
+ 
+ on timer( 100 )
+ remove()
+
+on ground_collision()
+ remove()

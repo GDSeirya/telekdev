@@ -1,0 +1,9 @@
+col_layer = -1
+invisible = 1
+
+on timer(0)
+ shoot_particles ( floorrisingvengencex.obj , 1)
+ remove()
+
+on ground_collision()
+ remove()

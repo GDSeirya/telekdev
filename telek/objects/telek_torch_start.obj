@@ -1,0 +1,26 @@
+invisible = 1
+col_layer = -1
+occluded = 1
+repeat = 100
+
+on ground_collision()
+ remove()
+
+on timer( 0 ,0, 1)
+ shoot_particles ( telek_torch_base.obj , 1, 1, 0, 0, 0, 0, 0, 0)
+
+on timer( 5 ,0, 1)
+ shoot_particles ( telek_torch_base_1.obj , 1, 1, 0, 0, 0, 0, 0, 0)
+ 
+on timer( 12 ,0, 1)
+ shoot_particles ( telek_torch_base_2.obj , 1, 1, 0, 0, 0, 0, 0, 0)
+ 
+ on timer( 22 ,0, 1)
+ shoot_particles ( telek_torch_base_3.obj , 1, 1, 0, 0, 0, 0, 0, 0)
+
+ on timer( 32 ,0, 1)
+ shoot_particles ( telek_torch_base_4.obj , 1, 1, 0, 0, 0, 0, 0, 0)
+
+ on timer( 50 ,0, 1)
+ shoot_particles ( telek_torch_base_5.obj , 1, 1, 0, 0, 0, 0, 0, 0)
+ remove()

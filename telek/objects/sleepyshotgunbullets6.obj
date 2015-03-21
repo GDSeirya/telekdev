@@ -1,0 +1,33 @@
+#gravity = 0.0009
+repeat = 4
+col_layer = 1
+health = 1
+alpha = 128
+
+on death()
+ remove()
+
+on ground_collision()
+ shoot_particles ( sleepyflashhit.obj, 1)
+ play_sound( empbouncia.wav, 30, 2, 0.05 )
+ shoot_particles ( warrocksmoke.obj , 5 , 0.3, 0.6, 0, 0, 360, 0, 0)
+ shoot_particles ( sleepysparkx.obj , 3 , 0.6, 0.6, 0, 0, 360, 0, 0)
+ remove()
+
+on timer(0)
+ shoot_particles ( desleepytrail.obj, 1)
+
+on timer(15)
+ shoot_particles ( sleepehlight.obj, 1)
+
+on detect_range(7, 0)
+ shoot_particles ( forneousbloodsplashfx.obj, 1)
+ play_sound_static( [chaoshit1.wav, chaoshit2.wav, chaoshit3.wav, chaoshit4.wav], 100 )
+ damage ( 9.5 )
+ push ( 0.2 )
+ shoot_particles ( bloodgen.obj , 10 , 0.5, 1, 0.5 )
+ shoot_particles ( bulletbloodspray.obj , 1)
+ remove()
+
+on timer(2650)
+ remove()

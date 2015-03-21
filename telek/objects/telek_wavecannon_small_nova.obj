@@ -1,0 +1,19 @@
+blender = add
+alpha = 128
+col_layer = -1
+render_layer = 4
+sprite = telek_wavecannon_bulletsmall.png
+anim_duration = 32
+anim_type = right_once
+anim_on_ground = 1
+bounce_factor = -1
+occluded = 0
+repeat = 1
+light_radius = 3
+damping = 0.9
+
+#on creation()
+# set_alpha_fade(128,0)
+
+on timer( 32 )
+ remove()

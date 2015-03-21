@@ -1,0 +1,17 @@
+blender = add
+alpha = 128
+col_layer = -1
+render_layer = 4
+sprite = telek_wglow.png
+anim_duration = 55
+anim_type = right_once
+anim_on_ground = 1
+occluded = 0
+repeat = 2
+light_radius = 15
+
+on creation()
+ set_alpha_fade(128,0)
+
+on timer( 128 )
+ remove()

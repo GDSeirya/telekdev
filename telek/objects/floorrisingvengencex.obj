@@ -1,0 +1,15 @@
+col_layer = -1
+alpha = 128
+blender = alpha
+color = [255, 255, 255]
+damping = 0.95
+gravity = -0.071
+
+on timer( 50, max_trigger = 1 )
+ set_alpha_fade(20,0)
+
+on timer(70)
+ remove()
+
+on ground_collision()
+ remove()

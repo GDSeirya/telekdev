@@ -1,0 +1,8 @@
+col_layer = -1
+damping = 0
+invisible = 1
+repeat = 6
+
+on timer(80)
+ shoot_particles ( ttfivearrowspiraladditivetwox.obj , 1, 0.0001, 0, 0, 0, 0, 0, 0)
+ remove()

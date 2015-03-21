@@ -1,0 +1,11 @@
+col_layer = -1
+sprite = missiletraileria.png
+anim_duration = 40
+anim_type = right_once
+render_layer = 3
+
+on ground_collision()
+ remove()
+
+on timer(40)
+ remove()

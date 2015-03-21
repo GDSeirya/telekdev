@@ -1,0 +1,13 @@
+
+invisible = 1
+repeat = 4
+health = 1
+
+on death()
+ remove()
+
+on timer(10,15)
+ remove()
+
+on timer(0)
+ shoot_particles ( desleepytrail.obj, 1)

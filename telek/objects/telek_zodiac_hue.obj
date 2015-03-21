@@ -1,0 +1,15 @@
+blender = add
+alpha = 64
+col_layer = -1
+render_layer = 3
+sprite = telek_zodiac.png
+occluded = 0
+damping = 0
+repeat = 1
+light_radius = 30
+
+on creation()
+ set_alpha_fade(64,0)
+
+on timer( 64 )
+ remove()

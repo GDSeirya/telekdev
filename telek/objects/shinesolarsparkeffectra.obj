@@ -1,0 +1,16 @@
+sprite = solarsparanimationeffector.png
+anim_duration = 35
+anim_type = right_once
+anim_on_ground = 1
+blender = add
+alpha = 128
+bounce_factor = 0
+ground_friction = 0
+col_layer = -1
+
+on timer(35)
+ remove()
+
+on creation()
+ play_sound( solarsparkshineblatra.wav, 100, 1, 0.05 )
+ shoot_particles ( solarflareflashlighteffect.obj , 1)

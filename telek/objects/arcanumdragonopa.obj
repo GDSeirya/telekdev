@@ -1,0 +1,10 @@
+sprite = arcaneadragonparti.png
+blender = add
+alpha = 107
+occluded = 0
+col_layer = -1 
+render_layer= 2
+damping = 0
+
+on creation()
+remove()

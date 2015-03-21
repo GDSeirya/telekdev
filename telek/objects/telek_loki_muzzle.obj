@@ -1,0 +1,11 @@
+col_layer = -1
+invisible = 1
+damping = 0
+
+on creation()
+ shoot_particles ( gunmuzzle_searing_2.obj , 16 , 0.45, 0.2, 0, 0, 8, 0, 0)
+ shoot_particles ( gunmuzzle_searing_1.obj , 8 , 0.45, 0.2, 0, 0, 15, -30, 0)
+ shoot_particles ( gunmuzzle_searing_1.obj , 8 , 0.45, 0.2, 0, 0, 15, 30, 0)
+ shoot_particles ( gunmuzzle_searing.obj , 4 , 0.45, 0.2, 0, 0, 30, -60, 0)
+ shoot_particles ( gunmuzzle_searing.obj , 4 , 0.45, 0.2, 0, 0, 30, 60, 0)
+ remove()

@@ -1,0 +1,21 @@
+repeat = 500
+col_layer = -1
+invisible = 1
+
+on ground_collision()
+ shoot_particles ( shotgunelecksparkxchance.obj , 1 , 0.5, 0.6, 0, 0, 30, 90, 0)
+ apply_map_effect( exp1hole.mfx )
+ remove()
+ 
+on timer(15)
+ shoot_particles ( lightsaberblureffectlight.obj , 1)
+ 
+ on timer(20)
+  shoot_particles ( iceslashtelekpushharmless.obj , 1 , 0.5, 0, 0, 0, 0, 90, 0)
+
+on timer(0)
+ shoot_particles ( lightsaberblureffect.obj , 1)
+
+
+ on timer(40)
+  remove()

@@ -1,0 +1,16 @@
+col_layer = -1 
+sprite = finalarroweffectreadierend.png
+anim_duration = 25
+anim_type = right_once
+anim_on_ground = 1
+damping = 0
+blender = alpha
+alpha = 255
+render_layer = 3
+repeat = 2
+
+on timer( 25, max_trigger = 1 )
+ set_alpha_fade(25,0)
+
+on timer( 100 )
+ remove()

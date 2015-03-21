@@ -1,0 +1,17 @@
+col_layer = -1 
+sprite = arrowshanoarecoloureffectostart.png
+anim_duration = 65
+anim_type = right_once
+anim_on_ground = 1
+damping = 0
+blender = alpha
+alpha = 255
+render_layer = 3
+repeat = 3
+
+on creation()
+ play_sound( arrowwarpstartra.wav, 100, 1, 0.05 )
+
+on timer( 240 )
+ shoot_particles ( ttfivearrowsummonorx.obj , 1 , 0.001, 0, 0, 0, 0, 0, 0)
+ remove()

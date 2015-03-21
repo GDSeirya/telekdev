@@ -1,0 +1,22 @@
+gravity = 0.015
+bounce_factor=0
+colour = [0, 180, 0]
+render_layer = 7
+col_layer = 1
+
+on ground_collision()
+ remove()
+
+on ground_collision()
+ remove()
+
+on detect_range(1, 0)
+ play_sound( telekacidicsizzle.wav, 100, 1, 0.1 )
+ damage ( 1 )
+ shoot_particles ( warrocksmoke.obj , 6 , 0.3, 0.6, 0, 0, 360, 0, 6)
+ shoot_particles ( telekstandardsmoke.obj , 3 , 0.1, 0.1, 0, 0, 360, 0, 0)
+ remove()
+
+on custom_event(8)
+ shoot_particles ( telek_return_acidicablood.obj, 1 , 0, 0, 1, 0, 0, 0, 0)
+ remove()

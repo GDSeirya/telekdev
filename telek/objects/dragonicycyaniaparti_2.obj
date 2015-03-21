@@ -1,0 +1,15 @@
+blender = add
+alpha = 128
+col_layer = -1
+render_layer = 4
+sprite = cyanicydragonia
+anim_duration = 64
+anim_type = right_once
+anim_on_ground = 1
+gravity = 0.01
+bounce_factor = 0
+ground_friction = 0
+damping = 0.94
+
+on timer( 64 )
+ remove()

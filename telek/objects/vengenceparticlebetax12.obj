@@ -1,0 +1,9 @@
+invisible = 1
+col_layer = -1
+
+on timer(0)
+ shoot_particles ( vengenceparticlealpha12.obj , 1)
+
+on timer(8)
+ shoot_particles ( vengenceparticlebetax13.obj , 1)
+ remove()

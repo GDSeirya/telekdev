@@ -1,0 +1,32 @@
+repeat = 1
+sprite = missile.png
+acceleration = 0.25
+max_speed = 1
+damping = 0.9
+health = 1
+
+on death()
+ remove()
+
+on ground_collision()
+ create_explosion( bazooka_damage.exp )
+ shoot_particles ( demissile_cluster_1.obj , 20 ,  1, 2, 0, 0)
+ shoot_particles ( demissile_cluster_2.obj , 20 ,  1, 2, 0, 0)
+ create_explosion( enhanced_explosion5.exp )
+ remove()
+
+on timer(10)
+ shoot_particles ( missile_trailer.obj , 1)
+
+on timer(0)
+ run_script(telek.bending_bullet)
+
+on detect_range(2, 0)
+ damage( 26 )
+ shoot_particles ( bloodexplosion.obj, 1)
+ create_explosion( bazooka_damage.exp )
+ create_explosion( enhanced_explosion5.exp )
+ shoot_particles ( demissile_cluster_1.obj , 30 ,  1, 2, 0, 0)
+ shoot_particles ( demissile_cluster_2.obj , 30 ,  1, 2, 0, 0)
+ remove()
+ 

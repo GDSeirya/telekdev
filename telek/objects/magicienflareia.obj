@@ -1,0 +1,13 @@
+sprite = triona.png
+blender = add
+alpha = 75
+render_layer = 6
+col_layer = -1
+damping = 0.96
+anim_duration = 25
+anim_type = right_once
+anim_on_ground = 1
+repeat = 2
+
+on timer( 25 )
+remove ()

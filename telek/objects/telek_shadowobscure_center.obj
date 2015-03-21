@@ -1,0 +1,25 @@
+invisible = 1
+repeat = 200
+col_layer = -1
+
+on ground_collision()
+ remove()
+ 
+on timer(130, 0, 1)
+ remove()
+
+on timer(0)
+ create_explosion ( telek_shaeiki_cap.exp )
+
+on detect_range(5, 1, [0,1,2,7])
+ damage ( 9999 )
+
+on detect_range(5, 0)
+ play_sound_static( telek_shadowobscure.ogg, 100 )
+ shoot_particles ( telek_zodiac_hue.obj, 1 , 1, 0, 0, 0, 0, 0, 0)
+ shoot_particles ( telek_shaeiki_death.obj, 1 )
+ shoot_particles ( telek_shaeiki_hit.obj, 1 )
+ damage ( 30 )
+ push ( 0.9 )
+ run_script( telek.flashHit)
+ remove()

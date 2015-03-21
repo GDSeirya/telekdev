@@ -1,0 +1,13 @@
+invisible = 1
+occluded = 1
+light_radius= 25
+render_layer = 1
+col_layer = -1
+alpha = 33
+repeat = 2
+
+on creation()
+ set_alpha_fade(33,0)
+
+on timer( 33 )
+ remove()

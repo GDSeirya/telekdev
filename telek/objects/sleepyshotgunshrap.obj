@@ -1,0 +1,28 @@
+invisible = 1
+gravity = 0.0095
+repeat = 2
+col_layer = 1
+health = 1
+
+on death()
+ remove()
+
+on ground_collision()
+ remove()
+
+on timer(0)
+ shoot_particles ( desleepytrailsmall.obj, 1)
+ 
+on timer(5,8)
+ shoot_particles ( sleepehlightweak.obj, 1)
+
+on detect_range(3, 0)
+ shoot_particles ( forneousbloodsplashfx.obj, 1)
+ play_sound_static( [chaoshit1.wav, chaoshit2.wav, chaoshit3.wav, chaoshit4.wav], 100 )
+ damage ( 5.725 )
+ push ( 0.02 )
+ shoot_particles ( bloodgen.obj , 1 , 0.5, 1, 0.5 )
+ remove()
+
+on timer(2650)
+ remove()

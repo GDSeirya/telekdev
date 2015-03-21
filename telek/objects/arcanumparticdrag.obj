@@ -1,0 +1,16 @@
+blender = add
+alpha = 128
+col_layer = -1
+render_layer = 3
+colour = [255, 0, 255]
+bounce_factor = 0
+ground_friction = 0
+repeat = 2
+wu_pixels = 1
+
+on creation()
+ set_alpha_fade(128,0)
+
+
+on timer( 128 )
+ remove()

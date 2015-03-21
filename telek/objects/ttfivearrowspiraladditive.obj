@@ -1,0 +1,13 @@
+col_layer = -1
+damping = 0
+invisible = 1
+repeat = 6
+
+on creation()
+ add_angle_speed(-2)
+
+on timer(10)
+ shoot_particles ( spinningarroweffectra.obj , 1, 0.0001, 0, 0, 0, 0, 80, 20)
+
+on timer(80)
+ remove()

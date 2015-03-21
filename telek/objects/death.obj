@@ -1,0 +1,10 @@
+col_layer = 7
+invisible = 1
+health = 1
+
+on death()
+ remove()
+
+on timer(0)
+ run_script(telek.getdeatheffect)
+ remove()

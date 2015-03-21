@@ -1,0 +1,26 @@
+sprite = fallingarroweffectora.png
+gravity = 0.2
+max_speed = 0.0011
+col_layer = -1
+render_layer = 4
+blender = alpha
+alpha = 204
+bounce_factor = 0
+ground_friction = 0
+
+on timer(3)
+ shoot_particles ( arrowshanoabulletraz5.obj , 1 , 0, 0, 1, 0, 0, 0, 0)
+ remove()
+
+on detect_range(5, 0)
+ shoot_particles ( forneousbloodsplashfx.obj, 1)
+ play_sound_static( [chaoshit1.wav, chaoshit2.wav, chaoshit3.wav, chaoshit4.wav], 100 )
+ damage ( 9 )
+ push ( 0.1 )
+ shoot_particles ( bloodgen.obj , 10 , 0.5, 1, 0.5 )
+ shoot_particles ( bloodsprayrange.obj , 1, 1, 0.5, 0, 0, 360, 0, 0)
+ remove()
+
+on ground_collision()
+ shoot_particles ( arrowshanoaendx.obj , 1 , 0, 0, 1, 0, 0, 0, 0)
+ remove()

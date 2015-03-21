@@ -1,0 +1,18 @@
+col_layer = -1 
+sprite = arrowshanoarecoloureffectoset.png
+anim_duration = 10
+anim_type = loop_right
+anim_on_ground = 1
+damping = 0
+blender = alpha
+alpha = 255
+render_layer = 3
+repeat = 2
+
+on timer( 10 )
+ shoot_particles ( plasmaarroweffectshallt.obj , 1 , 1, 0, 0, 0, 10, 0, 0)
+ play_sound( normalshottrtx.wav, 50, 1, 0.05 )
+
+on timer( 170 )
+ shoot_particles ( ttfivearrowsummonorzx.obj , 1 , 0.001, 0, 0, 0, 0, 0, 0)
+ remove()

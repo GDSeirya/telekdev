@@ -1,0 +1,9 @@
+repeat = 5
+col_layer = -1
+
+on timer(2,4)
+ remove()
+
+on timer(3,5)
+ shoot_particles ( shotgunelecksparkx.obj , 1, 0, 0, 1, 0, 0, 0, 0 )
+ remove()

@@ -1,0 +1,17 @@
+col_layer = -1
+invisible = 1
+repeat = 8
+
+on creation()
+play_sound( laserbeeper.wav, 100, 1, 0. )
+ add_angle_speed(-0.0625)
+ 
+on timer(0)
+ shoot_particles ( vengelas.obj, 1 , 0.001, 0, 0, 0, 0, 2, 0)
+
+on timer( 288, max_trigger = 1 )
+ play_sound( laserbeeper.wav, 100, 1, 0 )
+ add_angle_speed(0.0625)
+  
+on timer(320)
+ remove()

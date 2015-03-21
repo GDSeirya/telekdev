@@ -1,0 +1,19 @@
+invisible = 1
+col_layer = -1
+repeat = 37
+
+on ground_collision()
+ remove()
+
+on timer(0)
+ create_explosion ( dragonexp.exp )
+
+on timer(630)
+ play_sound( hardevildragonsaber.wav, 100, 1, 0 )
+
+on creation()
+ play_sound( hardevildragonsaber.wav, 100, 1, 0 )
+ add_angle_speed(0.75)
+
+on timer(0)
+ shoot_particles ( lightsaberblureffecttrail.obj , 1 , 1, 0, 0, 0, 0, 0, 6 )

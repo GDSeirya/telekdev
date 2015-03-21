@@ -1,0 +1,28 @@
+sprite = danshakudragon.png
+blender = add
+alpha = 150
+health = 1
+anim_duration = 10
+anim_type = ping_pong
+light_radius = 2
+
+#on timer(24)
+# create_explosion ( silolaseria.exp )
+
+on death()
+ remove()
+
+on ground_collision()
+ remove()
+
+on detect_range(2, 0)
+ damage( 2.55 )
+ push ( 0.03 )
+ shoot_particles ( bloodgen.obj , 1 , 0.5, 1, 0.5 )
+ remove()
+
+on timer( 700, max_trigger = 1 )
+ set_alpha_fade(150,0)
+
+on timer(850)
+ remove()

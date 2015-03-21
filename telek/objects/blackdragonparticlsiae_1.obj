@@ -1,0 +1,14 @@
+blender = alphach
+alpha = 128
+col_layer = -1
+render_layer = 4
+sprite = blackdragonparticla.png
+anim_duration = 32
+anim_type = right_once
+anim_on_ground = 1
+gravity = 0.01
+bounce_factor = 0
+ground_friction = 0
+
+on timer( 32 )
+ remove()

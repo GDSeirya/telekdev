@@ -1,0 +1,9 @@
+invisible = 1
+repeat = 1
+col_layer = -1
+
+on timer( 36, max_trigger = 1 )
+ remove()
+
+on timer(0,4)
+ shoot_particles ( vengelaser.obj, 1 , 1, 0, 0, 0, 0, 9, 0)

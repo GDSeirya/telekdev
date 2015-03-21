@@ -1,0 +1,15 @@
+blender = add
+alpha = 128
+col_layer = -1
+render_layer = 3
+sprite = arcanumblobiar.png
+bounce_factor = 0
+ground_friction = 0
+repeat = 2
+
+on creation()
+ set_alpha_fade(128,0)
+
+
+on timer( 128 )
+ remove()

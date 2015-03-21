@@ -1,0 +1,9 @@
+invisible = 1
+col_layer = -1
+repeat = 2
+
+on timer(1000)
+ remove()
+
+on timer(10)
+ shoot_particles ( arrowsummonshraper.obj , 7, 1, 2, 1 )

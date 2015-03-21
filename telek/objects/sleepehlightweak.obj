@@ -1,0 +1,13 @@
+sprite = despiselight.png
+blender = add
+alpha = 15
+occluded = 1
+col_layer = -1
+light_radius = 30
+repeat = 2
+
+on creation()
+ set_alpha_fade(30,0)
+
+on timer(30)
+ remove()

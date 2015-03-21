@@ -1,0 +1,14 @@
+sprite = plasmamuzzler.png
+blender = add
+alpha = 218
+occluded = 0
+col_layer = -1 
+render_layer= 1
+light_radius=60
+repeat = 15
+
+on creation()
+ set_alpha_fade( 218 , 0 )
+
+on timer( 218 )
+remove()

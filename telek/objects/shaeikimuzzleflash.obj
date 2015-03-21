@@ -1,0 +1,14 @@
+sprite = lightshutterobscura.png
+blender = add
+alpha = 255
+occluded = 0
+col_layer = -1 
+render_layer = 4
+light_radius = 200
+repeat = 25
+
+on creation()
+ set_alpha_fade(255,0)
+
+on timer( 255 )
+ remove()

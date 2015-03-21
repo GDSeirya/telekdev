@@ -1,0 +1,12 @@
+alpha = 128
+sprite = telek_wavecannon_bullet_light.png
+col_layer = -1
+occluded = 1
+repeat = 2
+light_radius = 15
+
+on creation()
+ set_alpha_fade(128,0)
+
+on timer( 128 )
+ remove()

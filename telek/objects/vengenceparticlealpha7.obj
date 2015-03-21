@@ -1,0 +1,17 @@
+col_layer = -1
+alpha = 255
+blender = add
+sprite = vengenceaura7.png
+damping = 0.95
+wu_pixels = 1
+gravity = -0.098
+render_layer = 5
+occluded = 1
+repeat = 5
+light_radius = 13
+
+on timer( 50, max_trigger = 1 )
+ set_alpha_fade(25,0)
+
+on timer( 75 )
+ remove()

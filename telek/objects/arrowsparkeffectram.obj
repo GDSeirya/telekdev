@@ -1,0 +1,12 @@
+invisible = 1
+repeat = 3
+col_layer = -1
+
+on ground_collision()
+ remove()
+
+on timer(25,30)
+ remove()
+
+on timer(0)
+ shoot_particles ( arrowsparkeffectramtrail.obj , 1 )

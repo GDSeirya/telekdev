@@ -1,0 +1,9 @@
+blender = alpha
+col_layer = -1
+render_layer = 3
+sprite = dragonrace_wings_8.png
+damping = 0
+repeat = 5
+
+on creation()
+ remove()

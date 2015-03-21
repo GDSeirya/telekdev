@@ -1,0 +1,8 @@
+sprite = lightsaberredtelek.png
+blender = add
+col_layer = -1
+alpha = 64
+
+on timer(0)
+ remove()
+

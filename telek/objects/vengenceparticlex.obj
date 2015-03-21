@@ -1,0 +1,13 @@
+invisible = 1
+col_layer = -1
+
+on timer(5,10)
+# shoot_particles ( vengenceparticlebeta.obj , 1)
+
+on timer(50)
+ shoot_particles ( floorrisingvengence.obj , 6 , 0, 0, 0, 0, 360, 0, 15)
+ shoot_particles ( floorrisingvengence.obj , 6 , 0, 0, 0, 0, 360, 0, 10)
+ shoot_particles ( floorrisingvengence.obj , 6 , 0, 0, 0, 0, 360, 0, 5)
+ shoot_particles ( vengenceparticlebetax.obj , 1)
+ play_sound( vengencespiritpillar.wav, 100, 1, 0 )
+ remove()

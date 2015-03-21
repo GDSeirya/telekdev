@@ -1,0 +1,49 @@
+sprite = hydradevilorb.png
+anim_on_ground = 1
+anim_duration = 15
+anim_type = loop_right
+gravity = 0.05
+health = 100
+bounce_factor = 0.625
+ground_friction = 0.475
+col_layer = 1
+render_layer = 0
+health = 1
+
+on death()
+ remove()
+ 
+on timer(2,5)
+ shoot_particles ( teleksmoke.obj , 3 , 0.3, 0.3, 0, 0, 360, 0, 2)
+
+on ground_collision()
+ shoot_particles ( telek_return_acidicabloodgenx.obj , 10 , 0.5, 1, 0.5 )
+ shoot_particles ( telek_return_acidicabloodgenx.obj , 20 , 0.8, 1, 0.5 )
+ shoot_particles ( telek_return_acidicabloodgenx.obj , 20 , 0.8, 2.5, 0.5 )
+ shoot_particles ( telek_return_acidicabloodgen.obj , 10 , 0.5, 1, 0.5 )
+ shoot_particles ( telek_return_acidicabloodgen.obj , 20 , 0.8, 1, 0.5 )
+ shoot_particles ( telek_return_acidicabloodgen.obj , 20 , 0.8, 2.5, 0.5 )
+ shoot_particles ( telek_return_acidicablood.obj , 100 , 0.5, 1, 0.5 )
+ shoot_particles ( acidiciabloodyvapour.obj , 20 , 0.3, 1, 0.52 )
+ shoot_particles ( acidiciabloodyvapour.obj , 30 , 0.9, 1, 1, 0, 360, 0, 0 )
+ shoot_particles ( acidiciabloodyvapour.obj , 35 , 1.5, 1, 1.5, 0, 360, 0, 0 )
+ play_sound_static( [telekacidboomfx.wav], 100 )
+ remove()
+
+on detect_range(5, 1)
+ damage ( 25 )
+ push ( 0.5 )
+ shoot_particles ( bloodyhellrange.obj , 1 , 0.9, 0.9, 0, 0, 35, 180, 0)
+ play_sound_static( [smashy1.ogg, smashy2.ogg], 25 )
+ shoot_particles ( telek_return_acidicabloodgenx.obj , 10 , 0.5, 1, 0.5 )
+ shoot_particles ( telek_return_acidicabloodgenx.obj , 20 , 0.8, 1, 0.5 )
+ shoot_particles ( telek_return_acidicabloodgenx.obj , 20 , 0.8, 2.5, 0.5 )
+ shoot_particles ( telek_return_acidicabloodgen.obj , 10 , 0.5, 1, 0.5 )
+ shoot_particles ( telek_return_acidicabloodgen.obj , 20 , 0.8, 1, 0.5 )
+ shoot_particles ( telek_return_acidicabloodgen.obj , 20 , 0.8, 2.5, 0.5 )
+ shoot_particles ( telek_return_acidicablood.obj , 100 , 0.5, 1, 0.5 )
+ shoot_particles ( acidiciabloodyvapour.obj , 20 , 0.3, 1, 0.52 )
+ shoot_particles ( acidiciabloodyvapour.obj , 30 , 0.9, 1, 1, 0, 360, 0, 0 )
+ shoot_particles ( acidiciabloodyvapour.obj , 35 , 1.5, 1, 1.5, 0, 360, 0, 0 )
+ play_sound_static( [telekacidboomfx.wav], 100 )
+ remove()

@@ -1,0 +1,31 @@
+repeat = 4
+col_layer = -1
+bounce_factor = -1
+blender = add
+sprite = telek_novastar.png
+anim_duration = 32
+anim_type = right_once
+anim_on_ground = 1
+anim_type = loop_right
+alpha = 255
+
+on creation()
+ shoot_particles ( telek_wavecannon_small_trail.obj, 20, 0.5, 0.5, 1, 1, 360, 0, 0)
+ shoot_particles ( telek_wavecannon_small_nova.obj, 5, 0.85, 2, 0, 0, 35, 0, 0)
+ shoot_particles ( telek_wavecannon_small_nova_mini.obj, 10, 1.7, 4, 0, 0, 35, 0, 0)
+
+on timer(1000)
+ remove()
+
+on timer(1)
+ shoot_particles ( telek_light_wave_5.obj , 1)
+ 
+on timer(0)
+ shoot_particles ( telek_wavecannon_high_trail.obj, 1, 0, 0, 0, 0, 0, 0, 0)
+ shoot_particles ( telek_wavecannon_bullet_trail_light_4.obj, 1)
+ shoot_particles ( telek_plasmaring.obj , 1)
+
+on detect_range(10, 0)
+ push ( 0.1)
+ damage ( 3.4 )
+

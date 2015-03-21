@@ -1,0 +1,10 @@
+invisible = 1
+col_layer = -1
+repeat = 5
+
+on creation()
+ run_script(telek.wallblood)
+
+on timer( 1, max_trigger = 1 )
+ shoot_particles ( telek_minibloodsplatend.obj , 1, 0, 0, 1, 0, 0, 0, 0)
+ remove()

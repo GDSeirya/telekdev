@@ -1,0 +1,27 @@
+colour = [255, 255, 255]
+gravity = 0.0009
+repeat = 4
+col_layer = 1
+health = 1
+
+on death()
+ remove()
+ 
+on timer(3,5)
+ shoot_particles ( teleksmoke.obj , 1 , 0.3, 0.3, 0, 0, 360, 0, 0)
+
+on ground_collision()
+ play_sound_static( [zelectroambience.wav, zelectroambience1.wav, zelectroambience2.wav, zelectroambience3.wav, zelectroambience4.wav], 100 )
+ shoot_particles ( telek_return_esubshock1.obj , 2 , 0.4, 0, 0, 0, 360, 0, 0)
+ shoot_particles ( telek_return_lightningsmoke.obj , 1)
+ remove()
+
+on timer(0)
+ shoot_particles ( telekbullettrailz.obj , 1 , 0, 0, 10, 0, 0, 0, 0)
+
+on detect_range(5, 1)
+ shoot_particles ( bloodsprayrange.obj , 1, 1, 0.5, 0, 0, 50, 180, 0)
+ play_sound_static( [zelectroambience.wav, zelectroambience1.wav, zelectroambience2.wav, zelectroambience3.wav, zelectroambience4.wav], 100 )
+ damage ( 60.777 )
+ shoot_particles ( telek_return_esubshock1.obj , 2 , 0.4, 0, 0, 0, 360, 0, 0)
+ remove()

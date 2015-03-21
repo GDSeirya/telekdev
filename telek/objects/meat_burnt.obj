@@ -1,0 +1,23 @@
+gravity = 0.012
+sprite = meat_burnt.png
+anim_duration = 60
+anim_type = loop_right
+anim_on_ground = 0
+bounce_factor = 0.2
+ground_friction = 0.7
+health = 1
+col_layer = 1
+
+on death()
+ remove()
+
+on timer(600, 200)
+ shoot_particles ( blood_ashies.obj , 3 , 0 , 0.7, 0.5, 0, 0, 0,0)
+ remove()
+
+on timer(5) 
+ shoot_particles ( warrocksmoke.obj , 1 , 0.2, 0.2, 1, 0, 360, 0, 0)
+ shoot_particles (  firemossash.obj , 5 , 0, 0.5, 1, 0, 360, 0, 0)
+ 
+ on timer(2,9)
+ shoot_particles(achillesflashhit.obj, 1)

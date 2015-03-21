@@ -1,0 +1,19 @@
+invisible = 1
+col_layer = -1
+
+on timer(0)
+ shoot_particles ( vengenceparticlealpha.obj , 1)
+
+on timer(5,10, max_trigger = 7 )
+ shoot_particles ( floorrisingvengence.obj , 1 , 0, 0, 0, 0, 360, 0, 15)
+
+on timer(2,3, max_trigger = 18 )
+ shoot_particles ( floorrisingvengencexx.obj , 1 , 0, 0, 0, 0, 360, 0, 15)
+
+on timer(2,3)
+ shoot_particles ( floorrisingvengenceletter.obj , 1 , 0, 0, 0, 0, 360, 0, 15)
+ shoot_particles ( floorrisingvengenceletterx.obj , 1 , 0, 0, 0, 0, 360, 0, 15)
+
+on timer(200)
+ shoot_particles ( vengenceparticlebetax1.obj , 1)
+ remove()

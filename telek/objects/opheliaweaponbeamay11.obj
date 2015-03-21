@@ -1,0 +1,23 @@
+invisible = 1
+repeat = 7
+col_layer = -1
+
+on timer(7)
+ shoot_particles ( requiemlighttrailx.obj , 1)
+
+on timer(0)
+ run_script( telek.thruThink )
+
+on timer(1)
+ shoot_particles ( magicienflareiax.obj , 5 , -0.275, -0.275, 0, 0, 360, 0, 3.5)
+
+on detect_range(9, 0)
+ shoot_particles ( screwingprotonx.obj , 1 , 1, 1.5, 0, 0, 360, 0, 0)
+ damage( 0.35 )
+
+on creation()
+ run_script( telek.thruSetup )
+
+on timer(7)
+ shoot_particles ( opheliaweaponbeamay12.obj , 1 , 1, 0, 0, 0, 0, 30, 0)
+ remove() 

@@ -1,0 +1,8 @@
+alpha = 255
+invisible = 1
+col_layer = -1
+occluded = 1
+light_radius = 8
+
+on creation()
+ remove()
