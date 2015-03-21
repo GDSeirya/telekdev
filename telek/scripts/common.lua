@@ -1,5 +1,11 @@
 local chat_fx = sounds["chat.ogg"]
 
+local global_common_is_loaded = 1
+
+if global_telek_is_loaded == nil then
+	telek.init()
+end
+
 obj_blood = load_particle("bloodgenxy.obj")
 
 local obj_otherSet = {}

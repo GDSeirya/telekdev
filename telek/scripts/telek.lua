@@ -1,3 +1,4 @@
+local global_telek_is_loaded = 1
 function telek.init()
 	print("telek.init triggered.")
 	print("telek v3.0 (2015)")
@@ -26,7 +27,9 @@ function telek.init()
 	print("@@@@@@@@@@@@@@@@@@@01   .1@@@@,                ;@@@@@@@@@@@@")
 	print("@@@@@@@@@@@@@@@@@@@@@@L1C@@@@@@@@L:.          ;0@@@@@@@@@@@@")
 	print("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@")
+	if global_common_is_loaded ~= nil then
 	common.init({hideEnemyHealth = true, hideNames = true})
+	end
 end
 
 ---LOCAL--
