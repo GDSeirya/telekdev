@@ -1,0 +1,12 @@
+
+repeat = 55
+col_layer = -1
+
+on ground_collision()
+ remove()
+
+on timer(0)
+ create_explosion ( cybertrail.exp )
+
+on detect_range(2)
+ push ( 0.02 )

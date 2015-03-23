@@ -1,0 +1,7 @@
+invisible = 1
+col_layer = -1
+damping = 0.01
+
+on timer(50, 100)
+ shoot_particles ( liftlight_spark.obj , 1 , 2, 0, 0, 0, 0, 0)
+

@@ -1,0 +1,67 @@
+CaveDrawing
+----------------
+v0.2  2006-02-09
+By Uthar/Strider
+Made for Gusanos 0.9c + Doom 1.1
+
+Info:
+-----
+Pencil drawn by me 2004.
+Scanned and colored (in PSP 7.04) by me.
+
+History:
+--------
+
+0.2 - 2006-02-09 (1.29mb)
+  Minor dirt graphics & lightmap improvemnts.
+  Optimiced file size on paralax.png & lightmap.png.
+  Water dripping with sounds in cave.
+  Wind sound in cave entrance.
+  Bird sound outside.
+  Greatly improved lights:
+    New sprites.
+    Damaged light
+	Flies with sound.
+  Falling leaves/needles when you damage the trees.
+
+0.1 - 2006-02-07 (1.09mb)
+  Converted from LOSP to Gusanos.
+  Added paralax.
+  Added lightmap.
+  Added Doom1.1 lights.
+
+Credits:
+--------
+sindalf for hos Doom1.1 mod.
+Gliptic and basara for Gusanos .9
+
+Links:
+------
+Gusanos:
+  http://gusanos.sourceforge.net/
+Liero chat:
+  irc://irc.quakenet.org/Liero
+This map thread:
+  http://comser.liero.org.pl/forum/index.php?topic=305.0
+Sound effects search:
+  http://www.findsounds.com/ISAPI/search.dll
+
+To Do:
+------
+Soon:
+  Flying bird outside.
+  Firefly moving around randomly with light.
+  Dirt debree.
+  Falling rocks.
+Future:
+  Insects/rats moving around on ground.
+  Soft lights.
+  Echo in cave.
+  Better sound fading.
+  Water in crack.
+  Semitransparent rock walls and dirt.
+  Respawn dirt.
+
+Screenshot:
+-----------
+http://powerhuhn.net/depot/gusanos/screenshots/740.CaveDrawing.jpg

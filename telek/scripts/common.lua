@@ -1,21 +1,17 @@
 local chat_fx = sounds["chat.ogg"]
 
-local global_common_is_loaded = 1
-
-if global_telek_is_loaded == nil then
-	telek.init()
-end
-
 obj_blood = load_particle("bloodgenxy.obj")
 
 local obj_otherSet = {}
 obj_otherSet[0] = load_particle("telek_ballonia.obj")
 obj_otherSet[1] = load_particle("telek_torch_start.obj")
+obj_otherSet[2] = load_particle("telek_fart.obj")
 
 local miscSound_set = {}
 miscSound_set[0] = sounds["telek_switch.ogg"]
 miscSound_set[1] = sounds["telek_systemnote.ogg"]
 miscSound_set[2] = sounds["telek_racesync.ogg"]
+miscSound_set[3] = sounds["telek_fart.wav"]
 
 local obj_phantomtrail = {}
 obj_phantomtrail[0] = load_particle("phantomtrailer_race.obj")
@@ -91,6 +87,7 @@ obj_dragonparticle_set[20] = load_particle("naturedragongreenia_1.obj")
 obj_dragonparticle_set[21] = load_particle("naturedragongreenia_2.obj")
 
 tel_wallblood = 1
+tel_debug = 0
 
 local crosshair_set = {}
 crosshair_set[0] = sprites_load("zegiancrosshair")
@@ -104,6 +101,7 @@ telekportrait_set[1] = sprites_load("telekportrait_sharkrace")
 telekportrait_set[2] = sprites_load("telekportrait_wormrace")
 telekportrait_set[3] = sprites_load("telekportrait_phantomsprite")
 telekportrait_set[4] = sprites_load("telekportrait_lupine")
+telekportrait_set[5] = sprites_load("telekportrait_bimmy")
 
 local telekicon_set = {}
 telekicon_set[0] = sprites_load("telekicon_placeholder")
@@ -251,6 +249,22 @@ function common.serverList(window)
 		end)
 	end
 end
+
+console_register_control("KILL_ME", function(plr,s)
+	if s then
+		if plr ~= nil then
+			if plr:worm() ~= nil then
+				if plr:worm():health() > 0 then
+					if  tel_debug == 1 then
+						plr:worm():damage(plr:worm():health()+1)
+					else
+						print("Telek: tel_debug is disabled.")
+					end
+				end
+			end
+		end
+	end
+end)
 
 console_register_control("WEAPON_ANGLE", function(plr,s)
 	if s then
@@ -542,6 +556,23 @@ console_register_command("TEL_WALLBLOOD", function(i)
 			end
 		end
 	end)
+	
+console_register_command("TEL_DEBUG", function(i)
+		if i == nil then
+			return tel_debug
+		elseif i ~= nil then
+			if tonumber(i) then
+				local i = i * 1
+				if i >= 0  and i <= 1then
+					tel_debug = i
+				else
+					return "INVALID VALUE, POSSIBLE VALUES: 1, 0"
+				end
+			else
+				return "INVALID VALUE, POSSIBLE VALUES: 1, 0"
+			end
+		end
+	end)
 
 function common.initHUD(options)
 	if not DEDSERV then
@@ -718,7 +749,11 @@ function common.initHUD(options)
 			
 			if worm:player():data().weaponSelection == nil then
 				if filled <= 0  then
-					hudFont:render( bitmap, "Press [JUMP] to spawn!", bitmap:w()/2, 40, color(255, 255, 255), Font.Shadow + Font.CenterH )
+					if worm:player():name() == "Bimmy" and worm:player():data().raceSelection.cur == 0 then
+						hudFont:render( bitmap, "Press [FART] to spawn!", bitmap:w()/2, 40, color(255, 255, 255), Font.Shadow + Font.CenterH )
+					else
+						hudFont:render( bitmap, "Press [JUMP] to spawn!", bitmap:w()/2, 40, color(255, 255, 255), Font.Shadow + Font.CenterH )
+					end
 				end
 			end
 
@@ -822,9 +857,15 @@ function common.initHUD(options)
 			
 			if (worm:player():data().raceSelection.cur ~= nil and worm:player():data().weaponSelection == nil) then
 				local tempNameRace
+			
 				if worm:player():data().raceSelection.cur == 0 then
-					tempNameRace = "Worm"
-					telekportrait_set[2]:render(bitmap, 0, bitmap:w()-27, 23)
+					if worm:player():name() == "Bimmy" then
+						tempNameRace = "Bimmy"
+						telekportrait_set[5]:render(bitmap, 0, bitmap:w()-27, 23)
+					else
+						tempNameRace = "Worm"
+						telekportrait_set[2]:render(bitmap, 0, bitmap:w()-27, 23)
+					end
 				elseif worm:player():data().raceSelection.cur == 1 then
 					tempNameRace = "Dragon"
 					telekportrait_set[0]:render(bitmap, 0, bitmap:w()-27, 23)
@@ -1150,7 +1191,7 @@ function common.initWeaponSelection()
 						elseif player:data().raceSelection.cur == 3 then
 							raceDesc = mySplit("Little is known about the Phantom. The•phantom is often described to be a•supernatural race, akin to a ghost. They have a•chilling aura that is even visible to the naked•eye.•It feeds on other's life force to sustain itself•which consequently makes it a sinister entity.•It is able to reanimate corpses to use as its•corporeal form to kill others for its feeding.", "•")
 						elseif player:data().raceSelection.cur == 4 then
-							raceDesc = mySplit("Lupines, generally a social beast-folk, often•seen civilized. They're covered in fur, making•them comfy in colder weathers.", "•")
+							raceDesc = mySplit("Lupines, generally a social beast-folk, often•seen civilized. They're covered in fur, making•them comfy in colder weathers. They're not•unintelligent in the slightest, generally. They•can speak and also communicate non-verbally•and convey messages with little words. They•can be qutie xenophobic, but it can vary. Very•few commoners would dare pit against them.•They can often be mistaken for lycanthropes.", "•")
 						else
 							raceDesc = mySplit("Unknown.•No description found.", "•")
 						end
@@ -1867,7 +1908,17 @@ function common.initWeaponSelection()
 			local o = player:data().weaponSelection
 			local cla = player:data().raceSelection
 			local w = player:worm():current_weapon()
-				
+			
+				--WORMTIMER
+			if (event == Player.Right or event == Player.Left) then
+				player:data().worm_moving_timer_flag = not player:data().worm_moving_timer_flag
+				player:data().worm_moving_timer = 0
+			end
+			
+			if event == Player.Jump and player:worm():health() > 0 and player:name() == "Bimmy" and player:data().raceSelection.cur == 0 then
+				player:worm():shoot(obj_otherSet[2], 1, 0, 0, 0, 0, 360, 0, 0)
+				miscSound_set[3]:play(player:worm(), nil, 100, 1)
+			end
 			if o then
 				if state and w ~= nil then
 					if event == Player.Down then
@@ -1918,10 +1969,30 @@ function common.initWeaponSelection()
 			end
 		end
 		
-		
+		local obj_lupinetail = {}
+obj_lupinetail[0] = {}
+obj_lupinetail[0][0] = load_particle("lupine_race_0_0.obj")
+obj_lupinetail[0][1] = load_particle("lupine_race_0_1.obj")
+obj_lupinetail[0][2] = load_particle("lupine_race_0_1.obj")
+obj_lupinetail[0][3] = load_particle("lupine_race_0_2.obj")
+obj_lupinetail[0][4] = load_particle("lupine_race_0_2.obj")
+obj_lupinetail[0][5] = load_particle("lupine_race_0_3.obj")
+obj_lupinetail[0][6] = load_particle("lupine_race_0_3.obj")
+obj_lupinetail[0][7] = load_particle("lupine_race_0_0.obj")
+obj_lupinetail[0][8] = load_particle("lupine_race_0_0.obj")
 		
 		function bindings.playerUpdate(player)
 			local o = player:data().weaponSelection
+			
+			--
+			if player:data().worm_moving_timer_flag then
+				player:data().worm_moving_timer = player:data().worm_moving_timer + 0.211
+				player:data().worm_moving_timer = round(player:data().worm_moving_timer,3)
+				if tonumber(player:data().worm_moving_timer) >= 8 then
+					player:data().worm_moving_timer = 1
+				end
+				--print(round(player:data().worm_moving_timer))
+			end
 			--BUBBLE GOES HERE
 			if player:data().isChatting == 1 and player:worm():health() > 0 then
 				local x, y = player:worm():pos()
@@ -2068,6 +2139,22 @@ function common.initWeaponSelection()
 							else
 								player:worm():shoot(obj_phantomtrail[get_name_colour(player:name())], 1, 0.01, 0, 0, 0, 0, 0, 0)
 							end
+						elseif (player:data().raceSelection.cur == 4) then
+							if get_name_colour(player:name()) <= 15 then
+								if (player:worm():angle() == 360) then
+									player:worm():shoot(obj_lupinetail[get_name_colour(player:name())][round(tonumber(player:data().worm_moving_timer))%14], 1, 0.01, 0, 0, 0, 0, 1, 0)
+								else
+									player:worm():shoot(obj_lupinetail[get_name_colour(player:name())][round(tonumber(player:data().worm_moving_timer))%14], 1, 0.01, 0, 0, 0, 0, 0, 0)
+								end
+							else
+								if (player:worm():angle() == 360) then
+									player:worm():shoot(obj_sharkfin[16], 1, 0.01, 0, 0, 0, 0, 1, 0)
+								else
+									player:worm():shoot(obj_sharkfin[16], 1, 0.01, 0, 0, 0, 0, 0, 0)
+								end
+							end
+						else
+							--DO NOTHING
 						end
 					end
 				end
@@ -2126,6 +2213,10 @@ function common.initWeaponSelection()
 	end
 end
 
+function bindings.wormDeath(worm)
+	print("TELEK: Death detected")
+end
+
 function bindings.playerInit(player)
 	local raceList = {}
 	raceList[0] = "Worm"
@@ -2141,6 +2232,8 @@ function bindings.playerInit(player)
 	raceList[10] = "Reptilian(Incomplete)" --Dorsal spikes
 	raceList[11] = "Avian(Incomplete)" --Female voice, beak
 	
+	player:data().worm_moving_timer = 0
+	player:data().worm_moving_timer_flag = false
 	player:data().torch = 0
 	player:data().flashScreen = 0
 	player:data().raceSelection =
@@ -2156,6 +2249,10 @@ function bindings.playerNetworkInit(player, connID)
 end
 
 function common.init(options)
+	if options == nil then
+		print("TELEK-FIX: Null options detected. Error is fixed now.")
+		options = {hideEnemyHealth = true, hideNames = true}
+	end
 	common.initHUD(options)
 	common.initChat(options)
 	common.initScoreboard(options)
@@ -2168,4 +2265,10 @@ function common.init(options)
 		mainm.init()
 	end
 
+end
+
+global_common_is_loaded = 1
+
+if global_telek_is_loaded ~= 1 then
+	telek.init()
 end

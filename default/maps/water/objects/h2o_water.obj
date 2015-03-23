@@ -1,0 +1,11 @@
+color = [128,128,255]
+blender = alpha
+alpha = 128
+render_layer = 7
+col_layer = -1
+line_to_origin = 1
+repeat = 999999
+wu_pixels = 1
+
+on ground_collision()
+ remove()

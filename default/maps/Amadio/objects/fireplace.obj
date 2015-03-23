@@ -1,0 +1,6 @@
+occluded=1
+col_layer=-1
+
+colour=[70, 0, 0]
+on timer(5)
+ shoot_particles ( flames.obj , 1 ,  0, 0.15, 0.3)

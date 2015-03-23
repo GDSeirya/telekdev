@@ -1,0 +1,16 @@
+invisible = 1
+col_layer = -1 
+sprite = starryhealer.png
+anim_duration = 25
+anim_type = right_once
+render_layer = 6
+damping = 0.96
+blender = add
+alpha = 200
+light_radius = 3
+
+on timer( 25 )
+ remove()
+
+on ground_collision()
+ remove()

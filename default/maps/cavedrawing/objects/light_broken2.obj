@@ -1,0 +1,23 @@
+sprite = LampBroken.png
+col_layer = -1
+render_layer = 2
+
+
+on timer(75,75,10) 
+shoot_particles(light_flash.obj, 1)
+
+on timer(400,25) 
+shoot_particles(light_flash.obj, 1)
+
+on timer(450,25) 
+shoot_particles(light_flash.obj, 1)
+
+on timer(470,20) 
+shoot_particles(light_flash.obj, 1)
+
+on timer(485,10) 
+shoot_particles(light_flash.obj, 1)
+
+on timer(500) 
+shoot_particles(light.obj, 1)
+remove()

@@ -1,0 +1,5 @@
+colour=[200,0,0]
+wu_pixels=1
+gravity=0.05
+on ground_collision()
+ remove()

@@ -1,0 +1,5 @@
+sprite = telek_poof.png
+col_layer = -1
+
+on timer(30)
+ remove()

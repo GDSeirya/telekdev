@@ -1,0 +1,5 @@
+col_layer = -1
+invisible = 1
+
+on timer(3) 
+ shoot_particles( candlelightaurapower.obj, 1)

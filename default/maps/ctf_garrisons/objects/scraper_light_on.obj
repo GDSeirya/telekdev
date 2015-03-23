@@ -1,0 +1,7 @@
+render_layer    = 1
+col_layer       = -1
+sprite          = scraper_light_on.png
+
+on timer(1000,750)
+    shoot_particles(scraper_light_off.obj,1,0,0,0,0)
+    remove()

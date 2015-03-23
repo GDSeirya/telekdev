@@ -1,0 +1,6 @@
+sprite = telek_fart.png
+col_layer = -1
+render_layer = 3
+
+on timer(30)
+ remove()

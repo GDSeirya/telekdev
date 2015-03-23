@@ -1,0 +1,10 @@
+colour = [100, 128, 91]
+wu_pixels = 1
+render_layer = 6
+
+gravity = 0.001
+max_speed = 0.01
+col_layer = -1
+
+on ground_collision()
+ remove()

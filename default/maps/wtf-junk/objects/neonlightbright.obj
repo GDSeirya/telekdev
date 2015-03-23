@@ -1,0 +1,5 @@
+sprite = lightingneon.png
+col_layer = -1
+alpha = 150
+render_layer = 7
+blender = add

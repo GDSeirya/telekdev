@@ -1,0 +1,6 @@
+
+col_layer = -1
+invisible = 1
+
+on timer(11, 22)
+ shoot_particles ( cyberenergy.obj , 1 , 0.2, 0, 0, 0, 3, 0, 0)

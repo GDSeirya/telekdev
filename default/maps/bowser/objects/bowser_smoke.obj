@@ -1,0 +1,12 @@
+
+gravity = -0.02
+damping = 0.97
+sprite = bowser_smoke.png
+anim_duration = 40
+anim_type = right_once
+
+on ground_collision()
+ remove()
+
+on timer(40, 40)
+ remove()

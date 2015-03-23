@@ -1,0 +1,14 @@
+sprite = liftlight.png
+blender = add
+alpha = 40
+anim_duration = 31
+occluded = 1
+col_layer = -1 
+render_layer=8
+light_radius=16
+
+on creation()
+set_alpha_fade(30,0)
+
+on timer( 30 )
+remove()

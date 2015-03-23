@@ -1,0 +1,5 @@
+invisible = true
+
+on creation()
+ play_sound_static(clank.wav, 50, pitch_var = 0.3)
+ remove()

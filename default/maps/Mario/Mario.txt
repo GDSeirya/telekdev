@@ -1,0 +1,23 @@
+===========
+   Mario
+===========
+
+Original Liero level by Johan Otterud
+ http://www.liero.nl => Liero Levels
+LOSP version by Zander Zoftware
+ http://www.liero.nl => LOSP Levels
+Gusanos version by Zander Zoftware
+ http://www.liero.nl => Gusanos Levels
+
+
+Mario, the classical level by Johan Otterud is back, this time for Gusanos!
+
+This version of Mario is very different from the previous Liero and LOSP versions. The Liero version was from the time that Powerlevels were not invented yet. As a result, the level was colored brown and grey, with a bit of red and yellow-ish.
+The LOSP version was done in the colors of the original Mario games (from the NES), but was an almost exact replica of the Liero level.
+The Gusanos version however uses the SNES graphics from "Super Mario Allstars". This gives the level a whole new feel. Gusanos offers the use of animated sprites, so they were added to make it feel even more like the original games.
+However, the clouds from Mario 2 are not animated because I felt it looked wrong. I also left in the original clouds because the "new" SNES clouds are a lot bigger.
+The background is from Mario 1/2, as the Mario 3 background looked too crowded.
+
+
+Mario © 2004-2006 Johan Otterud, Zander Zoftware
+http://www.liero.nl

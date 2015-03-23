@@ -1,0 +1,6 @@
+sprite = florecentrock.png
+col_layer = -1
+render_layer = 7
+blender = add
+alpha = 255
+

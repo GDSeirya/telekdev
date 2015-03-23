@@ -1,0 +1,9 @@
+
+col_layer = -1
+invisible = 1
+
+on creation()
+ play_sound( watersfx.wav, 30, 1, 0.05 )
+
+on timer(280)
+ play_sound( watersfx.wav, 30, 1, 0.05 )

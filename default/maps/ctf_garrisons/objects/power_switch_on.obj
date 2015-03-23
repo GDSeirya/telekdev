@@ -1,0 +1,9 @@
+sprite = powerOn.png
+render_layer    = 1
+col_layer       = -1
+
+on creation()
+    play_sound("switch.wav")
+
+on detect_range (10)
+    run_script(map_ctf_garrisons.pressBtn)

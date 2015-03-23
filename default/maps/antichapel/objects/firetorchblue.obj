@@ -1,0 +1,5 @@
+col_layer = -1
+invisible = 1
+
+on timer(3) 
+ shoot_particles ( blueinfranium.obj , 1 , 0.03 , 0.06, 0, 0, 0,0)

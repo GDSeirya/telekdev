@@ -1,0 +1,5 @@
+sprite = reallybright.png
+blender = add
+alpha = 250
+col_layer = -1 
+render_layer = 4

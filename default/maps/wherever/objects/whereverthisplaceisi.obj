@@ -1,0 +1,7 @@
+sprite = levelappearence.png
+col_layer = -1 
+render_layer = 1
+anim_duration = 3
+anim_type = ping_pong
+blender = alpha
+alpha = 128

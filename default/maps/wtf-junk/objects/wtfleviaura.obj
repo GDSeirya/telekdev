@@ -1,0 +1,9 @@
+sprite = wtflevigas.png
+blender = add
+alpha = 6
+occluded = 1
+col_layer = -1 
+render_layer= 1
+
+on timer(0)
+remove()

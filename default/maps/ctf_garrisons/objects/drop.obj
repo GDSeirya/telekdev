@@ -1,0 +1,11 @@
+colour          = [42, 104, 8]
+wu_pixels       = 1
+
+gravity         = 0.01
+max_speed       = 0.1
+col_layer       = -1
+render_layer    = 7
+
+on ground_collision()
+    play_sound([Drip1.ogg,Drip2.ogg,Drip3.ogg,Drip4.ogg,Drip5.ogg,Drip6.ogg,Drip7.ogg,Drip8.ogg,Drip9.ogg,Drip10.ogg,Drip11.ogg],10, 1, 0.05)
+    remove()

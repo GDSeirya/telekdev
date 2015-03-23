@@ -1,0 +1,5 @@
+sprite = whereverthisplaceis.png
+col_layer = -1 
+render_layer = 0
+anim_duration = 80
+anim_type = ping_pong

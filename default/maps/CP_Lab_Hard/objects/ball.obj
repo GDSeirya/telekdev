@@ -1,0 +1,8 @@
+sprite = c_p.png
+damping = 0
+gravity = 0
+
+on detect_range(5.5, 5.5)
+ run_script(addPoint)
+ shoot_particles ( ball2.obj , 1 , 3, 0, 0, 0, 0, 0, 0)
+ remove()

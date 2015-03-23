@@ -1,0 +1,10 @@
+sprite = c_p.png
+damping = 0
+gravity = 0
+
+on detect_range(9000, 9000)
+ damage(1000)
+
+on timer(100)
+ shoot_particles ( ball.obj , 1 , 3, 0, 0, 0, 0, 0, 0)
+ remove()

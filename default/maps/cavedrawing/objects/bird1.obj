@@ -1,0 +1,4 @@
+invisible = 1
+
+on timer(900, 500) 
+play_sound([Bird1.ogg],50, 1, 0.15)

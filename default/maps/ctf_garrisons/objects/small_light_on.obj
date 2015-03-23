@@ -1,0 +1,5 @@
+sprite          = small_light_on.png
+col_layer       = -1
+render_layer    = 7
+light_gen       = <<< utlights.mid >>>
+light_size      = [ 120,120 ]

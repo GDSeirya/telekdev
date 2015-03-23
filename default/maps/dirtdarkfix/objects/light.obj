@@ -1,0 +1,10 @@
+sprite = lamp.png
+col_layer = -1
+render_layer = 7
+light_radius = 100
+blender = add
+alpha = 255
+
+on detect_range(2, 0)
+ shoot_particles ( light_broken.obj, 1)
+ remove()

@@ -1,0 +1,25 @@
+damping = 0.99
+sprite = fish3.png
+
+sync_pos = true
+
+
+
+on creation()
+ add_angle_speed(1)
+
+on timer(0,0,1)
+ run_script(map_weater.orbInit)
+
+on timer(100)
+ run_script( map_weater.orbUpdateTarg )
+
+on timer( 2 )
+ run_script( map_weater.orbThink )
+
+on timer( 0 )
+ shoot_particles(orblight.obj,1,0,distribution = 0,distance_offs = 6)
+ shoot_particles(orblight.obj,1,0,distribution = 0,distance_offs = 6, angle_offs = 120)
+ shoot_particles(orblight.obj,1,0,distribution = 0,distance_offs = 6, angle_offs = -120)
+
+on ground_collision()

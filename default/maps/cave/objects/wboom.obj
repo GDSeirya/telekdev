@@ -1,0 +1,6 @@
+invisible = 1
+gravity = 10
+damping = 0
+
+on timer(750)
+ shoot_particles ( wboom1.obj , 50 ,  1, 1.15, 1.8)

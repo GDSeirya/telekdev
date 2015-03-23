@@ -1,0 +1,86 @@
+Garrisons
+----------------
+v1.1  2006-02-19
+By Ragzouken
+Made for Gusanos 0.9c
+
+Originally LieroX level.
+
+Info:
+-----
+Set in a set of garrisons once fought on in a battle between two rebel factions. After weeks of stalemate fighting one group took advantage of the sewer system and took the other by suprise, defeating them in a matter of hours.  
+
+History:
+--------
+
+1.0 - 2006-02-18 (350KB)
+  Converted from LieroX to Gusanos.
+  Changed background sky to sunset.
+  Added lightmap.
+  Added sewer lights and power switch.
+  Added animated sewage.
+
+1.1 - 2006-02-19 (352KB)
+  Outlined Ropes.
+  Added ladders.
+  Changed sewer grills.
+  Fixed lightmap on top floor.
+  Added syncing in network games for lights and switch.
+  Extended switch delay.
+
+1.11 - 2006-02-19 (351KB)
+  Fixed syncing.
+  Removed debug text.
+
+1.2 - 2006-02-19 (351KB)
+  Actually fixed syncing.
+  fixed background.
+
+1.4 - 2006-02-20 (375KB)
+  Darkened small_light.png.
+  Make stairs useable.
+  Converted to UT CTF.
+
+1.5 - 2006-02-20 (1.44MB)
+  Changed lights to use UT.
+  Added jump pads.
+  Extended stairs.
+  Added BG music.
+  
+1.6 - 2006-02-20 (1.48MB)
+  Altered lightmap.
+  Added changing sky scraper lights.
+  Changed materials so stairs and sewer grates can be shot through.
+  Made windows look like windows.
+
+1.7 - 2006-02-20 (1.45MB)
+  Altered lightmap on background windows.
+  Removed paralax.
+  Added dirt doors and sewer covers.
+  Fixed sky scraper windows.
+
+Credits:
+--------
+Uthar/Cave Drawing for droplet sounds.
+Gliptic and basara for Gusanos .9
+
+Links:
+------
+Gusanos:
+  http://gusanos.sourceforge.net/
+Liero chat:
+  irc://irc.quakenet.org/Liero
+This map thread:
+  http://comser.liero.org.pl/forum/index.php?topic=319.0
+Sound effects search:
+  http://www.findsounds.com/ISAPI/search.dll
+
+To Do:
+------
+Soon:
+Future:
+  Air Strike Caller.
+
+Screenshot:
+-----------
+http://ragzouken.com/Garrisons.png

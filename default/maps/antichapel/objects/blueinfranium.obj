@@ -1,0 +1,14 @@
+gravity = -0.001
+blender = add
+alpha = 200
+colour = [25, 55, 105]
+render_layer = 6
+wu_pixels = true
+col_layer = -1
+light_radius = 1
+
+on timer(0,0,1)
+set_alpha_fade(80, 20)
+
+on timer(80, 20)
+ remove()

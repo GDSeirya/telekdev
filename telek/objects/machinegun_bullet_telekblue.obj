@@ -5,6 +5,9 @@ repeat = 4
 col_layer = 1
 health = 1
 
+on creation()
+ play_sound( machinegunbubbleia.wav, 100, 1, 0.05 )
+
 on death()
  remove()
 

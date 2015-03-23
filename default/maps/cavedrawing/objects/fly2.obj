@@ -1,0 +1,9 @@
+sprite = Fly2.png
+render_layer = 8
+blender = alpha
+alpha = 128
+col_layer = -1
+anim_duration = 100
+ 
+on timer(100)
+ remove()

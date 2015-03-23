@@ -1,0 +1,7 @@
+col_layer = -1
+
+on creation()
+  play_global_sound(optictrain.ogg, 90, 0, 1, 0)
+
+on timer(8584)
+  play_global_sound(optictrain.ogg, 90, 0, 1, 0)

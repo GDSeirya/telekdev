@@ -1,4 +1,4 @@
-local global_telek_is_loaded = 1
+global_telek_is_loaded = 1
 function telek.init()
 	print("telek.init triggered.")
 	print("telek v3.0 (2015)")
@@ -27,20 +27,25 @@ function telek.init()
 	print("@@@@@@@@@@@@@@@@@@@01   .1@@@@,                ;@@@@@@@@@@@@")
 	print("@@@@@@@@@@@@@@@@@@@@@@L1C@@@@@@@@L:.          ;0@@@@@@@@@@@@")
 	print("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@")
-	if global_common_is_loaded ~= nil then
-	common.init({hideEnemyHealth = true, hideNames = true})
+	if global_common_is_loaded ~= 1 then
+		common.init({hideEnemyHealth = true, hideNames = true})
 	end
 end
 
 ---LOCAL--
       --local FlashControl = load_particle("fg_control_flash.obj")
-local obj_normal_death = load_particle("death_normal.obj")
-local obj_dragon_death = load_particle("death_dragon.obj")
-local obj_shark_death = load_particle("death_shark.obj")
+local obj_deathSet = {}
+obj_deathSet[0] = load_particle("death_normal.obj")
+obj_deathSet[1] = load_particle("death_dragon.obj")
+obj_deathSet[2] = load_particle("death_shark.obj")
+obj_deathSet[3] = load_particle("death_lupine.obj")
+obj_deathSet[4] = load_particle("death_phantom.obj")
+obj_deathSet[5] = load_particle("death_bimmy.obj")
 
 obj_enhancedmini = {}
 obj_enhancedmini[0] = load_particle("machinegun_bullet.obj")
 obj_enhancedmini[1] = load_particle("machinegun_bullet_telekblue.obj")
+obj_enhancedmini[2] = load_particle("machinegun_bullet_bimmy.obj")
 
 obj_weaponsets = {}
 obj_weaponsets[0] = load_particle("rshellbuckfire.obj") --sune ku
@@ -57,11 +62,19 @@ function telek.getdeatheffect(object) --Aligns the sprite where the object is mo
 		local selectedRace = player:data().raceSelection.cur
 		if selectedRace ~= nil then
 			if selectedRace == 1 then
-				object:shoot(obj_dragon_death, 1, 0, 0, 1, 0, 0, 0, 0)
+				object:shoot(obj_deathSet[1], 1, 0, 0, 1, 0, 0, 0, 0)
 			elseif selectedRace == 2 then
-				object:shoot(obj_shark_death, 1, 0, 0, 1, 0, 0, 0, 0)
+				object:shoot(obj_deathSet[2], 1, 0, 0, 1, 0, 0, 0, 0)
+			elseif selectedRace == 3 then
+				object:shoot(obj_deathSet[4], 1, 0, 0, 1, 0, 0, 0, 0)
+			elseif selectedRace == 4 then
+				object:shoot(obj_deathSet[3], 1, 0, 0, 1, 0, 0, 0, 0)
 			else
-				object:shoot(obj_normal_death, 1, 0, 0, 1, 0, 0, 0, 0)
+				if player:name() == "Bimmy" then
+					object:shoot(obj_deathSet[5], 1, 0, 0, 1, 0, 0, 0, 0)
+				else
+					object:shoot(obj_deathSet[0], 1, 0, 0, 1, 0, 0, 0, 0)
+				end
 			end
 		end
 	end
@@ -82,6 +95,9 @@ function telek.gd_easteregg1(object) --If your name is GD
 	local player = object:player()
 	if (player:name() == "GD") then
 		object:shoot(obj_enhancedmini[1], 1, 0, 0, 1, 0, 0, 0, 0)
+		object:remove()
+	elseif (player:name() == "Bimmy" and player:data().raceSelection.cur == 0) then
+		object:shoot(obj_enhancedmini[2], 1, 0, 0, 1, 0, 0, 0, 0)
 		object:remove()
 	else
 		object:shoot(obj_enhancedmini[0], 1, 0, 0, 1, 0, 0, 0, 0)

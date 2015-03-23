@@ -1,0 +1,6 @@
+
+render_layer = 0
+col_layer = -1
+sprite = manyorbs.png
+anim_duration = 60
+anim_type = loop_right

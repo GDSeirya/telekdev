@@ -1,0 +1,11 @@
+sprite = Leaf.png
+blender = alphach
+render_layer = 6
+anim_duration = 100
+
+gravity = 0.0002
+max_speed = 0.001
+col_layer = -1
+
+on ground_collision()
+ remove()

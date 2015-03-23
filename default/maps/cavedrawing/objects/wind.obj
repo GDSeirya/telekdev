@@ -1,0 +1,4 @@
+invisible = 1
+
+on timer(1000) 
+play_sound([Wind.ogg],8, 1, 0.15)

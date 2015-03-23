@@ -1,0 +1,8 @@
+invisible = 1
+col_layer = -1
+
+on creation()
+ play_global_sound( undergroundambience.wav, 10,0,1)
+
+on timer(540)
+ play_global_sound( undergroundambience.wav, 10,0,1)

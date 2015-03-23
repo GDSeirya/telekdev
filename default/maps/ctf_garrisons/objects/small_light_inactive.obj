@@ -1,0 +1,4 @@
+sprite          = small_light_off.png
+col_layer       = -1
+render_layer    = 7
+health          = 1

@@ -1,0 +1,6 @@
+invisible=1
+col_layer=-1
+
+on timer(150)
+ shoot_particles(spikep.obj , 1 )
+ remove()

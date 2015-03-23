@@ -1,0 +1,11 @@
+sprite = binaryone.png
+blender = add
+alpha = 250
+col_layer = -1 
+render_layer = 2
+
+on timer(500)
+ remove()
+
+on creation()
+ set_alpha_fade(249,0)

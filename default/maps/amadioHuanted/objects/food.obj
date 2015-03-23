@@ -1,0 +1,6 @@
+occluded=1
+col_layer=-1
+
+colour=[255, 0, 0]
+on timer(1000)
+ shoot_particles ( food-seconds.obj , 1 ,  0, 0.15, 0.3)

@@ -1,0 +1,7 @@
+gravity = 0
+colour = [255, 0, 255]
+sprite = coin
+col_layer = 5
+render_layer = 0
+anim_on_ground = true
+repeat = 2

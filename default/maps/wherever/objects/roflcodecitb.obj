@@ -1,0 +1,6 @@
+invisible = 1
+col_layer = -1
+repeat = 100
+
+on timer(100,100)
+ shoot_particles ( roflcodecita.obj , 1, 0, 0.1, 0, 0, 360, 0, 0)

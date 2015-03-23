@@ -1,0 +1,7 @@
+invisible       = 1
+col_layer       = -1
+render_layer    = 7
+
+on timer(200,150)
+shoot_particles(drop.obj, 1, speed = 0.01, speed_var = 0.01, distribution = 5, angle_offs = 180)
+ 

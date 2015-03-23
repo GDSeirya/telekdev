@@ -1,0 +1,8 @@
+sprite = lightingneon.png
+col_layer = -1
+alpha = 10
+render_layer = 7
+blender = add
+
+on timer(1,2)
+ remove()

@@ -1,0 +1,13 @@
+sprite = leveloverlay.png
+blender = add
+alpha = 40
+col_layer = -1 
+repeat = 110
+render_layer = 4
+
+on timer(16250)
+ shoot_particles ( sistwo.obj , 1 , 0, 0, 0, 0, 0, 0, 0)
+ remove()
+
+on creation()
+ set_alpha_fade(-250,0)

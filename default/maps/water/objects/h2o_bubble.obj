@@ -1,0 +1,15 @@
+color = [255,255,255]
+blender = alpha
+alpha = 255
+col_layer = -1
+wu_pixels = 1
+repeat = 1
+damping = 0.99
+gravity = -0.0045
+
+
+on ground_collision()
+ remove()
+
+on timer(4)
+ run_script(h2o.bubble_think)

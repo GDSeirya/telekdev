@@ -1,0 +1,10 @@
+gravity = 0.00
+damping = 0.97
+sprite = bowser_axe.png
+anim_duration = 30
+anim_type = loop_right
+render_layer = 0
+col_layer = -1
+
+
+

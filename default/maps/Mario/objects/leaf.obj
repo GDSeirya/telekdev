@@ -1,0 +1,6 @@
+gravity = 0
+colour = [255, 0, 255]
+sprite = leaf
+col_layer = -1
+render_layer = 0
+anim_on_ground = true

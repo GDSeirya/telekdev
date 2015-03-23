@@ -1,0 +1,13 @@
+sprite = lgamer.png
+blender = add
+alpha = 5
+col_layer = -1 
+repeat = 70
+render_layer = 2
+
+on timer(16250)
+ shoot_particles ( binarytwox.obj , 1 , 0, 0, 70, 0, 0, 0, 0)
+ remove()
+
+on creation()
+ set_alpha_fade(-250,0)

@@ -1,0 +1,10 @@
+sprite = bluetrail.png
+blender = add
+alpha = 255
+anim_duration = 31
+col_layer = -1 
+render_layer=8
+max_speed = 2
+
+on ground_collision()
+ remove()

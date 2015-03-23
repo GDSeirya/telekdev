@@ -1,0 +1,9 @@
+colour=[255,0,0]
+wu_pixels=1
+gravity=0.05
+on ground_collision()
+ shoot_particles(bloodsplash.obj,4,1,0.5,0,2,90,180)
+ remove()
+on detect_range(4,0,[worms])
+ shoot_particles(bloodsplash.obj,4,1,0.5,0,2,90,180)
+ remove()

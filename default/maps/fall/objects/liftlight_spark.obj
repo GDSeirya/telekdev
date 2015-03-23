@@ -1,0 +1,10 @@
+colour = [200, 100, 0]
+blender = alpha
+alpha = 150
+anim_duration = 100
+col_layer = -1 
+render_layer=8
+max_speed = 2
+
+on ground_collision()
+ remove()

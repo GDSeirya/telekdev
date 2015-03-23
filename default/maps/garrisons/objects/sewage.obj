@@ -1,0 +1,5 @@
+sprite = sewage.png
+blender = alpha
+alpha = 200
+col_layer = -1
+render_layer = 7

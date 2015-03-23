@@ -1,0 +1,13 @@
+
+col_layer = -1
+invisible = 1
+
+on timer(500, 750, 1200)
+ shoot_particles ( binaryone.obj , 1 , 0.004, 0, 0, 0, 0, 0, 0)
+ shoot_particles ( binaryspawn.obj , 1 , 0, 0, 0, 0, 0, 0, 0)
+ remove()
+
+on timer(499, 749, 1201)
+ shoot_particles ( binaryonex.obj , 1 , 0.004, 0, 0, 0, 0, 0, 0)
+ shoot_particles ( binaryspawn.obj , 1 , 0, 0, 0, 0, 0, 0, 0)
+ remove()

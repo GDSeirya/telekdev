@@ -1,0 +1,12 @@
+sprite = florecentrock.png
+col_layer = -1
+render_layer = 7
+blender = add
+alpha = 255
+
+distort_magnitude = 0.151
+distort_gen = <<< distortions.lens >>>
+distort_size = [65,65]
+
+on timer(5)
+ uniform_shoot_particles( strangerockaura.obj , 100, 1, 0, 0, 0, 360, 0, 0)

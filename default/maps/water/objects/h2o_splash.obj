@@ -1,0 +1,11 @@
+color = [128,128,255]
+col_layer = -1
+repeat = 1
+gravity = 0.009
+
+
+on ground_collision()
+ remove()
+
+on timer(30,10)
+ remove()

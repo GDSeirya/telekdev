@@ -1,0 +1,8 @@
+col_layer = -1
+invisible = true
+
+on timer(0,0,1)
+    play_global_sound(razor.mp3,130,0,1,0)
+on timer(28500)
+    play_global_sound(razor.mp3,130,0,1,0)
+

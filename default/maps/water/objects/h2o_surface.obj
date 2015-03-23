@@ -1,0 +1,15 @@
+color = [0,0,255]
+blender = add
+alpha = 170
+col_layer = -1
+wu_pixels = 1
+repeat = 1
+
+on timer(1)
+ remove()
+
+on detect_range(1, 1, [1])
+ run_script(h2o.object_splash)
+
+on detect_range(1, 1, [worms])
+ run_script(h2o.worm_splash)

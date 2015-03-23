@@ -1,0 +1,9 @@
+
+col_layer = -1
+invisible = 1
+
+on creation()
+ play_global_sound( fearinducer.wav,20,0,1)
+
+on timer(400)
+ play_global_sound( fearinducer.wav,20,0,1)

@@ -1,0 +1,6 @@
+invisible = true
+col_layer = -1
+
+on timer(3,10)
+ shoot_particles ( wtfshock.obj , 30 , 1, 1, 0, 0, 0, 90, 0)
+ shoot_particles ( wtfshock.obj , 30 , 1, 1, 0, 0, 0, -90, 0)

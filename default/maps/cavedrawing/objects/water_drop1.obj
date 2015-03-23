@@ -1,0 +1,6 @@
+col_layer=0
+invisible = 1
+
+on timer(75,250) 
+shoot_particles(water_droplet1.obj, 1, speed=0.01, speed_var=0.01, distribution=5, angle_offs=180)
+ 

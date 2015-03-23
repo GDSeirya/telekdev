@@ -1,0 +1,6 @@
+
+col_layer = -1
+invisible = 1
+
+on timer(500, 750, 1200)
+ shoot_particles ( extrabinaryone.obj , 1 , -0.004, 0, 0, 0, 0, 0, 0)

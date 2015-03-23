@@ -1,0 +1,4 @@
+invisible=1
+col_layer=-1
+on timer(100,400)
+ shoot_particles(drip.obj,1,1,0,0,0,0,180)

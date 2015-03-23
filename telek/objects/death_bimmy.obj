@@ -1,0 +1,7 @@
+col_layer = -1
+invisible = 1
+
+on creation()
+ shoot_particles ( telek_poofy.obj, 1)
+ play_sound_static( [telek_poof.wav], 100 )
+ remove()
