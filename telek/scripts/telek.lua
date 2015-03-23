@@ -1,32 +1,33 @@
 global_telek_is_loaded = 1
+
 function telek.init()
 	print("telek.init triggered.")
 	print("telek v3.0 (2015)")
 	print("tel_wallblood reset to 1")
-	print("@@@@@@@@@@@@@@@@@@@@@@@@@8@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@")
-	print("@@@ TELEK 3.0 @@@@@@@@@@@@ G@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@")
-	print("@@@@ NENRIKI @@@@@@@@@@@@@@G   .,fLG8.  @@@@@@@@@@@@@@@@@@@@")
-	print("@@@ By: GD - 2015 @@@@0iL@@@GCC;.        .@@@@@@@@@@@@@@@@@@")
-	print("@@@@ and: Peedle @@@@@@@@@f:                ,0@@@@@@@@@@@@@@")
-	print("@@@@@@@@@@@@@@@@@@@@@@@@@@@1            8:    :0@@@@@@@@@@@@")
-	print("@@@@@@@@@@@@@@@@@@@@@@@@@... ..          :L;     .1G@@@@@@@@")
-	print("@@@t; .    .it0@8@@@@@@@ .8@f              .         ;L@@@@@")
-	print("@@@@@81.         :8@@@@88@@.       1       f@0i,.       .@@@")
-	print("@@@@@@@@;          ;8@@@@@@       i@,      LCC880L.    L@@@@")
-	print("@@@@@@@@L          .:8@@@@@i       .C              :L@@@@@@@")
-	print("@@@@@@@@t          . ,C@@@@@;        1CtL88CCCff1:   1@@@@@@")
-	print("@@@@@8G;.;i.          f@@@@@@f         t@@@@@@@@@@f;0@@@@@@@")
-	print("@@@@@@@@@@@i .       .8@@;   @@t         .C@@@@@@@@@@@@@@@@@")
-	print("@@@@@@@@@@1         18@@;     ,@@81          t@@@@@@@@@@@@@@")
-	print("@@@@@@@@@f . .     ;@@@G         .1@@@G1.  .   f@@@@@@@@@@@@")
-	print("@@@@@@@G t88i        C@@@.                1@@i  C@@@@@@@@@@@")
-	print("@@@@@@@@@@@8,         18@@@,                ;@@@@@@@@@@@@@@@")
-	print("@@@@@@@@@@@@t          ,C@@@                  ,@@@@@@@@@@@@@")
-	print("@@@@@@@@@@@@@0f::       ,8@@@                   8@@@@@@@@@@@")
-	print("@@@@@@@@@@@@@@@@@@1      i@@@i                 .8@@@@@@@@@@@")
-	print("@@@@@@@@@@@@@@@@@@@01   .1@@@@,                ;@@@@@@@@@@@@")
-	print("@@@@@@@@@@@@@@@@@@@@@@L1C@@@@@@@@L:.          ;0@@@@@@@@@@@@")
-	print("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@")
+	print("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@8@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@")
+	print("@@@@@@@ TELEK 3.0 @@@@@@@@@@@@@@@ G@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@")
+	print("@@@@@@@@ NENRIKI @@@@@@@@@@@@@@@@@G   .,fLG8.  @@@@@@@@@@@@@@@@@@@@@@@@@@@")
+	print("@@@@@@@ By: GD - 2015 @@@@@@@0iL@@@GCC;.        .@@@@@@@@@@@@@@@@@@@@@@@@@")
+	print("@@@@@@@@ and: Peedle @@@@@@@@@@@@f:                ,0@@@@@@@@@@@@@@@@@@@@@")
+	print("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@1            8:    :0@@@@@@@@@@@@@@@@@@@")
+	print("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@... ..          :L;     .1G@@@@@@@@@@@@@@@")
+	print("@@@@@@@@@@t; .    .it0@8@@@@@@@ .8@f              .         ;L@@@@@@@@@@@@")
+	print("@@@@@@@@@@@@81.         :8@@@@88@@.       1       f@0i,.       .@@@@@@@@@@")
+	print("@@@@@@@@@@@@@@@;          ;8@@@@@@       i@,      LCC880L.    L@@@@@@@@@@@")
+	print("@@@@@@@@@@@@@@@L          .:8@@@@@i       .C              :L@@@@@@@@@@@@@@")
+	print("@@@@@@@@@@@@@@@t          . ,C@@@@@;        1CtL88CCCff1:   1@@@@@@@@@@@@@")
+	print("@@@@@@@@@@@@8G;.;i.          f@@@@@@f         t@@@@@@@@@@f;0@@@@@@@@@@@@@@")
+	print("@@@@@@@@@@@@@@@@@@i .       .8@@;   @@t         .C@@@@@@@@@@@@@@@@@@@@@@@@")
+	print("@@@@@@@@@@@@@@@@@1         18@@;     ,@@81          t@@@@@@@@@@@@@@@@@@@@@")
+	print("@@@@@@@@@@@@@@@@f . .     ;@@@G         .1@@@G1.  .   f@@@@@@@@@@@@@@@@@@@")
+	print("@@@@@@@@@@@@@@G t88i        C@@@.                1@@i  C@@@@@@@@@@@@@@@@@@")
+	print("@@@@@@@@@@@@@@@@@@8,         18@@@,                ;@@@@@@@@@@@@@@@@@@@@@@")
+	print("@@@@@@@@@@@@@@@@@@@t          ,C@@@                  ,@@@@@@@@@@@@@@@@@@@@")
+	print("@@@@@@@@@@@@@@@@@@@@0f::       ,8@@@                   8@@@@@@@@@@@@@@@@@@")
+	print("@@@@@@@@@@@@@@@@@@@@@@@@@1      i@@@i                 .8@@@@@@@@@@@@@@@@@@")
+	print("@@@@@@@@@@@@@@@@@@@@@@@@@@01   .1@@@@,                ;@@@@@@@@@@@@@@@@@@@")
+	print("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@L1C@@@@@@@@L:.          ;0@@@@@@@@@@@@@@@@@@@")
+	print("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@")
 	if global_common_is_loaded ~= 1 then
 		common.init({hideEnemyHealth = true, hideNames = true})
 	end
@@ -126,6 +127,9 @@ rtype_bullets[4] = load_particle("telek_wavecannon_beam.obj")
 rtype_bullets[5] = load_particle("telek_wavecannon_high.obj")
 rtype_bullets[6] = load_particle("telek_wavecannon_strong.obj")
 
+local misc_particles = {}
+misc_particles[0] = load_particle("greendragonhead.obj")
+
 function telek.wave_cannon_charge(object)
 	local player = object:player()
 	if player:data().waveCannonCharge ~= nil and player:data().waveCannonCharge < 200 then
@@ -195,7 +199,7 @@ function telek.wave_cannon_release(object)
 		if player:data().waveCannonCharge < 300 then
 			player:worm():shoot(rtype_bullets[5] , 1, 1, 0, 0, 0, 0, 0, 5)
 			else
-			print("6")
+			--print("6")
 			player:worm():shoot(rtype_bullets[6] , 1, 1, 0, 0, 0, 0, 0, 5)
 		end
 	else
@@ -215,7 +219,9 @@ function telek.wave_cannon_active(object)
 	local player = object:player()
 	--print(player:name())
 	if player:data().waveCannonCharge == nil or player:data().waveCannonChargeBlink == nil or player:data().waveCannonChargeSound == nil and player:data().waveCannonChargeFlag == nil then
-		print("Wave cannon initiaized")
+		if tel_debug == 1 then
+			print("TELEK-DEBUG: Wave cannon initiaized")
+		end
 	end
 	player:data().waveCannonCharge = 0
 	player:data().waveCannonChargeBlink = 0
@@ -223,6 +229,16 @@ function telek.wave_cannon_active(object)
 	player:data().waveCannonChargeFlag = 0
 end
 
+function telek.zegian_head_fix (object)
+	local player = object:player()
+	if player ~= nil then
+		if math.ceil(player:worm():angle()) >= 175 and math.floor(player:worm():angle()) <= 185  then
+			object:shoot(misc_particles[0], 1, 0.0001, 0, 0, 0, 0, 7, 1)
+		else
+			object:shoot(misc_particles[0], 1, 0.0001, 0, 0, 0, 0, 8, 1)
+		end
+	end
+end
 
 function telek.homing_needler (object,worm) --From Doom
 	local player = object:player()
@@ -243,19 +259,6 @@ function telek.homing_needler (object,worm) --From Doom
 				object:set_angle(a - 10)
 			end
 		end
-		--[[
-		if player and object:player():data().lead == 1 then
-			local x1,y1 = object:pos()
-			local x2 = player:data().lgrTargX
-			local y2 = player:data().lgrTargY
-			local a = object:angle()
-			if ( angle_diff(a,vector_direction(x1, y1, x2, y2)) > 0 ) then
-				object:set_angle(a + 10)
-			else
-				object:set_angle(a - 10)
-			end
-		end
-		--]]
 	end
 end
 
@@ -316,7 +319,9 @@ function telek.suneKuActive(object)
 		end
 	else
 		player:data().suneKuTime = 0
-		print("Sune Ku initialized")
+		if tel_debug == 1 then
+			print("TELEK-DEBUG: Sune Ku initialized")
+		end
 	end
 end
 
@@ -342,7 +347,9 @@ function telek.achillesActive(object)
 		end
 	else
 		player:data().achillesTime = 0
-		print("Achilles initialized")
+		if tel_debug == 1 then
+			print("TELEK-DEBUG: Achilles initialized")
+		end
 	end
 end
 
@@ -368,7 +375,9 @@ function telek.lokiActive(object)
 		end
 	else
 		player:data().lokiTime = 0
-		print("Loki initialized")
+		if tel_debug == 1 then
+			print("TELEK-DEBUG: Loki initialized")
+		end
 	end
 end
 
@@ -394,7 +403,9 @@ function telek.sleipnirActive(object)
 		end
 	else
 		player:data().sleipnirTime = 0
-		print("Sleipnir initialized")
+		if tel_debug == 1 then
+			print("TELEK-DEBUG: Sleipnir initialized")
+		end
 	end
 end
 
@@ -421,7 +432,9 @@ function telek.lachesisActive(object)
 	else
 		player:data().lachesisTime = 0
 		player:data().lachesisCross = 0
-		print("Lachesis initialized")
+		if tel_debug == 1 then
+			print("TELEK-DEBUG: Lachesis initialized")
+		end
 	end
 end
 
@@ -458,7 +471,9 @@ function telek.daedalusActive(object)
 		end
 	else
 		player:data().daedalusTime = 0
-		print("Daedalus initialized")
+		if tel_debug == 1 then
+			print("TELEK-DEBUG: Daedalus initialized")
+		end
 	end
 end
 
@@ -484,7 +499,9 @@ function telek.foActive(object)
 		end
 	else
 		player:data().foTime = 0
-		print("Fallout initialized")
+		if tel_debug == 1 then
+			print("TELEK-DEBUG: Fallout initialized")
+		end
 	end
 end
 
@@ -539,6 +556,7 @@ end)
 console_register_command("help_tel", function()
 	console.say = "00=TELEK="
 	console.say = "09tel_wallblood <bool>"
+	console.say = "09tel_debug <bool>"
 	console.say = "00=PAGE UP/DOWN TO SCROLL="
 end)
 

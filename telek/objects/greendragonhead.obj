@@ -1,5 +1,5 @@
 blender = add
-alpha = 127
+alpha = 255
 col_layer = -1
 render_layer = 7
 sprite = greendragonhead.png

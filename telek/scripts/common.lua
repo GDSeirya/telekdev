@@ -12,6 +12,9 @@ miscSound_set[0] = sounds["telek_switch.ogg"]
 miscSound_set[1] = sounds["telek_systemnote.ogg"]
 miscSound_set[2] = sounds["telek_racesync.ogg"]
 miscSound_set[3] = sounds["telek_fart.wav"]
+miscSound_set[4] = sounds["telek_cursor.ogg"]
+miscSound_set[5] = sounds["telek_decide.ogg"]
+miscSound_set[6] = sounds["telek_raceselect.ogg"]
 
 local obj_phantomtrail = {}
 obj_phantomtrail[0] = load_particle("phantomtrailer_race.obj")
@@ -85,9 +88,6 @@ obj_dragonparticle_set[18] = load_particle("blackdragonparticlsiae_1.obj")
 obj_dragonparticle_set[19] = load_particle("whitedragonoflight_1.obj")
 obj_dragonparticle_set[20] = load_particle("naturedragongreenia_1.obj")
 obj_dragonparticle_set[21] = load_particle("naturedragongreenia_2.obj")
-
-tel_wallblood = 1
-tel_debug = 0
 
 local crosshair_set = {}
 crosshair_set[0] = sprites_load("zegiancrosshair")
@@ -169,10 +169,56 @@ telekicon_set[61] = sprites_load("telekicon_missile")
 telekicon_set[62] = sprites_load("telekicon_wavecannon")
 telekicon_set[63] = sprites_load("telekicon_lokishotgun")
 
+tel_wallblood = 1
+tel_debug = 0
+
+------------RACE SYNCING------------
+local fart_sync_go = network_player_event("fart_sync_go", function(self, player, data)
+	if not player:is_local() then
+		player:worm():shoot(obj_otherSet[2], 1, 0, 0, 0, 0, 360, 0, 0)
+		miscSound_set[3]:play(player:worm(), nil, 100, 1)
+		if tel_debug == 1 then
+			print("TELEK-DEBUG: Race sync'd with: ["..player:name() .."]")
+		end
+	end
+end)
+
+local fart_sync_ask = network_player_event("fart_sync_ask", function(self, player, data)
+	player:worm():shoot(obj_otherSet[2], 1, 0, 0, 0, 0, 360, 0, 0)
+	miscSound_set[3]:play(player:worm(), nil, 100, 1)
+	fart_sync_go:send(player)
+	if tel_debug == 1 then
+		print("TELEK-DEBUG: [" .. player:name().. "] fart is synced, sent sync to all players.")
+	end
+end)
+
+	
+function fart_sync_trigger(worm)
+	player:worm():shoot(obj_otherSet[2], 1, 0, 0, 0, 0, 360, 0, 0)
+	miscSound_set[3]:play(player:worm(), nil, 100, 1)
+	if tel_debug == 1 then
+		print("TELEK-DEBUG: Fart sync trigger ["..player:name() .."]")
+	end
+	if AUTH then
+		if tel_debug == 1 then
+			print("TELEK-DEBUG: Syncing fart of ["..player:name() .. "] with other players")
+		end
+		fart_sync_go:send(player)
+	else
+		if tel_debug == 1 then
+			print("TELEK-DEBUG: Asking [Server] to sync your fart.")
+		end
+		fart_sync_ask:send(player)
+	end
+end
+
+------------RACE SYNCING------------
 local race_sync_go = network_player_event("race_sync_go", function(self, player, data)
 	if not player:is_local() then
 		player:data().raceSelection.cur = data:get_int()
-		print("Race sync'd with: ["..player:name() .."]")
+		if tel_debug == 1 then
+			print("TELEK-DEBUG: Race sync'd with: ["..player:name() .."]")
+		end
 	end
 end)
 
@@ -181,13 +227,80 @@ local race_sync_ask = network_player_event("race_sync_ask", function(self, playe
 	local data = new_bitstream()
 	data:add_int(player:data().raceSelection.cur)
 	race_sync_go:send(player,data)
-	print("[" .. player:name().. "] race is synced, sent sync to all players.")
+	if tel_debug == 1 then
+		print("TELEK-DEBUG: [" .. player:name().. "] race is synced, sent sync to all players.")
+	end
 end)
 
+	
+function race_sync_trigger(worm)
+	player = worm:player()
+	local data = new_bitstream()
+	data:add_int(player:data().raceSelection.cur)
+	if tel_debug == 1 then
+		print("TELEK-DEBUG: Race sync trigger ["..player:name() .."]")
+	end
+	if AUTH then
+		if tel_debug == 1 then
+			print("TELEK-DEBUG: Syncing race of ["..player:name() .. "] with other players")
+		end
+		race_sync_go:send(player,data)
+	else
+		if tel_debug == 1 then
+			print("TELEK-DEBUG: Asking [Server] to sync your race.")
+		end
+		race_sync_ask:send(player,data)
+	end
+end
+
+------------LUPINE SYNCING------------
+local lupine_sync_go = network_player_event("lupine_sync_go", function(self, player, data)
+	if not player:is_local() then
+		player:data().worm_moving_timer = data:get_int()
+		if tel_debug == 1 then
+			print("TELEK-DEBUG: Lupine sync'd with: ["..player:name() .."]")
+		end
+	end
+end)
+
+local lupine_sync_ask = network_player_event("lupine_sync_ask", function(self, player, data)
+	player:data().worm_moving_timer = data:get_int()
+	local data = new_bitstream()
+	data:add_int(player:data().worm_moving_timer)
+	lupine_sync_go:send(player,data)
+	if tel_debug == 1 then
+		print("TELEK-DEBUG: [" .. player:name().. "] lupine is synced, sent sync to all players.")
+	end
+end)
+
+	
+function lupine_sync_trigger(worm)
+	player = worm:player()
+	local data = new_bitstream()
+	data:add_int(player:data().worm_moving_timer)
+	if tel_debug == 1 then
+		print("TELEK-DEBUG: Lupine sync trigger ["..player:name() .."]")
+	end
+	if AUTH then
+		if tel_debug == 1 then
+			print("TELEK-DEBUG: Syncing lupine of ["..player:name() .. "] with other players")
+		end
+		lupine_sync_go:send(player,data)
+	else
+		if tel_debug == 1 then
+			print("TELEK-DEBUG: Asking [Server] to sync your lupine.")
+		end
+		lupine_sync_ask:send(player,data)
+	end
+end
+
+------------BUBBLE SYNCING------------
 local cbubble_sync_go = network_player_event("cbubble_sync_go", function(self, player, data)
 	if not player:is_local() then
 		player:data().isChatting = data:get_int()
-		print("Chat bubble sync'd with: ["..player:name() .."]")
+		if tel_debug == 1 then
+			print("TELEK-DEBUG: Chat bubble sync'd with: ["..player:name() .."]")
+		end
 	end
 end)
 
@@ -196,41 +309,35 @@ local cbubble_sync_ask = network_player_event("cbubble_sync_ask", function(self,
 	local data = new_bitstream()
 	data:add_int(player:data().isChatting)
 	cbubble_sync_go:send(player,data)
-	print("[" .. player:name().. "] chat bubble is synced, sent sync to all players.")
+	if tel_debug == 1 then
+		print("TELEK-DEBUG: [" .. player:name().. "] chat bubble is synced, sent sync to all players.")
+	end
 end)
 
 function update_player_chatBubbles(player, isOn)
-	if player:data().isChatting == nil then
-		print("Initialized chat bubble.")
+	if player:data().isChatting == nil and tel_debug == 1 then
+		print("TELEK-DEBUG: Initialized chat bubble.")
 	end
 	player:data().isChatting = isOn
 	local data = new_bitstream()
 	data:add_int(player:data().isChatting)
-	print("Chat bubble sync trigger ["..player:name() .. "]")
+	if tel_debug == 1 then
+		print("TELEK-DEBUG: Chat bubble sync trigger ["..player:name() .. "]")
+	end
 	if AUTH then
-		print("Syncing chat bubble of ["..player:name() .. "] with other players")
+		if tel_debug == 1 then
+			print("TELEK-DEBUG: Syncing chat bubble of ["..player:name() .. "] with other players")
+		end
 		cbubble_sync_go:send(player,data)
 	else
-		print("Asking [Server] to sync your chat bubble.")
+		if tel_debug == 1 then
+			print("TELEK-DEBUG: Asking [Server] to sync your chat bubble.")
+		end
 		cbubble_sync_ask:send(player,data)
 	end
 end
 
-	
-function race_sync_trigger(worm)
-	player = worm:player()
-	local data = new_bitstream()
-	data:add_int(player:data().raceSelection.cur)
-	print("Race sync trigger ["..player:name() .."]")
-	if AUTH then
-		print("Syncing race of ["..player:name() .. "] with other players")
-		race_sync_go:send(player,data)
-	else
-		print("Asking [Server] to sync your race.")
-		race_sync_ask:send(player,data)
-	end
-end
-
+------------DEFAULT STUFF------------
 function common.serverList(window)
 	if window then
 		window:clear()
@@ -256,9 +363,10 @@ console_register_control("KILL_ME", function(plr,s)
 			if plr:worm() ~= nil then
 				if plr:worm():health() > 0 then
 					if  tel_debug == 1 then
+						print("TELEK: Player is killed")
 						plr:worm():damage(plr:worm():health()+1)
 					else
-						print("Telek: tel_debug is disabled.")
+						print("TELEK: tel_debug is disabled.")
 					end
 				end
 			end
@@ -274,10 +382,14 @@ console_register_control("WEAPON_ANGLE", function(plr,s)
 					miscSound_set[1]:play(player:worm(), nil, 100, 1)
 					if plr:data().angleToggle == 0 or plr:data().angleToggle == nil then
 						plr:data().angleToggle = 1
-						print("Aim compass enabled")
+						if tel_debug == 1 then
+							print("TELEK-DEBUG: Aim compass enabled")
+						end
 					else
 						plr:data().angleToggle = 0
-						print("Aim compass disabled")
+						if tel_debug == 1 then
+							print("TELEK-DEBUG: Aim compass disabled")
+						end
 					end
 				end
 			end
@@ -337,10 +449,14 @@ console_register_control("RELOAD_TIMER", function(plr,s)
 						end
 					end
 					if plr:data().reloadVis == 1 then
-						print("Reload assist enabled")
+						if tel_debug == 1 then
+							print("TELEK-DEBUG: Reload assist enabled")
+						end
 						chat_fx:play(plr:worm(), nil, 50, 1.5)
 					else
-						print("Reload assist disabled")
+						if tel_debug == 1 then
+							print("TELEK-DEBUG: Reload assist disabled")
+						end
 						chat_fx:play(plr:worm(), nil, 50, 0.75)
 					end
 				end
@@ -353,7 +469,9 @@ local torch_sync_go = network_player_event("torch_sync_go", function(self, playe
 	if not player:is_local() then
 		player:data().torch = data:get_int()
 		miscSound_set[0]:play(player:worm(), nil, 100, 1)
-		print("Torch sync'd with: ["..player:name() .."]")
+		if tel_debug == 1 then
+			print("TELEK-DEBUG: Torch sync'd with: ["..player:name() .."]")
+		end
 	end
 end)
 
@@ -364,7 +482,9 @@ local torch_sync_ask = network_player_event("torch_sync_ask", function(self, pla
 	local data = new_bitstream()
 	data:add_int(player:data().torch)
 	torch_sync_go:send(player,data)
-	print("[" .. player:name().. "] torch is synced, sent sync to all players.")
+	if tel_debug == 1 then
+		print("TELEK-DEBUG: [" .. player:name().. "] torch is synced, sent sync to all players.")
+	end
 end)
 
 function torch_sync_trigger(worm)
@@ -372,12 +492,18 @@ function torch_sync_trigger(worm)
 	local data = new_bitstream()
 	data:add_int(player:data().torch)
 	miscSound_set[0]:play(player:worm(), nil, 100, 1)
-	print("Torch sync trigger ["..player:name() .."]")
+	if tel_debug == 1 then
+		print("TELEK-DEBUG: Torch sync trigger ["..player:name() .."]")
+	end
 	if AUTH then
-		print("Syncing torch of ["..player:name() .. "] with other players")
+		if tel_debug == 1 then
+			print("TELEK-DEBUG: Syncing torch of ["..player:name() .. "] with other players")
+		end
 		torch_sync_go:send(player,data)
 	else
-		print("Asking [Server] to sync your torch.")
+		if tel_debug == 1 then
+			print("TELEK-DEBUG: Asking [Server] to sync your torch.")
+		end
 		torch_sync_ask:send(player,data)
 	end
 end
@@ -420,10 +546,14 @@ console_register_control("TOGGLE_GUI", function(plr,s)
 						plr:data().showGUI = 1
 					end					
 					if plr:data().showGUI == 1 then
-						print("GUI enabled")
+						if tel_debug == 1 then
+							print("TELEK-DEBUG: GUI enabled")
+						end
 						chat_fx:play(plr:worm(), nil, 50, 1.5)
 					else
-						print("GUI disabled")
+						if tel_debug == 1 then
+							print("TELEK-DEBUG: GUI disabled")
+						end
 						chat_fx:play(plr:worm(), nil, 50, 0.75)
 					end
 				end
@@ -1131,6 +1261,10 @@ function common.initWeaponSelection()
 		function bindings.viewportRender(viewport, worm)
 			local bitmap = viewport:bitmap()
 			local player = worm:player()
+			if player:data().glow == nil then
+				player:data().glow = 0
+				player:data().glowFlag = false
+			end
 			if player and player:data().weaponSelection then
 				local o = player:data().weaponSelection
 				local cla = player:data().raceSelection
@@ -1148,7 +1282,18 @@ function common.initWeaponSelection()
 							bitmap,
 							name,
 							x, y,
-							color(50, 190, 50), Font.Shadow)
+							color(50+player:data().glow, 190+player:data().glow, 50+player:data().glow), Font.Shadow)
+							if player:data().glowFlag then
+								player:data().glow = player:data().glow + 0.1
+								if player:data().glow > 65 then
+									player:data().glowFlag = false
+								end
+							else
+								player:data().glow = player:data().glow - 0.1
+								if player:data().glow <= 0 then
+									player:data().glowFlag = true
+								end
+							end
 					else
 						fonts.liero:render(
 							bitmap,
@@ -1908,16 +2053,21 @@ function common.initWeaponSelection()
 			local o = player:data().weaponSelection
 			local cla = player:data().raceSelection
 			local w = player:worm():current_weapon()
+
 			
-				--WORMTIMER
-			if (event == Player.Right or event == Player.Left) then
-				player:data().worm_moving_timer_flag = not player:data().worm_moving_timer_flag
+			if (not player:worm():is_changing()) then
+				if (event == Player.Right or event == Player.Left) then
+					player:data().worm_moving_timer_flag = not player:data().worm_moving_timer_flag
+					player:data().worm_moving_timer = 0
+				end
+			else
+				player:data().worm_moving_timer_flag = false
 				player:data().worm_moving_timer = 0
 			end
-			
+
+
 			if event == Player.Jump and player:worm():health() > 0 and player:name() == "Bimmy" and player:data().raceSelection.cur == 0 then
-				player:worm():shoot(obj_otherSet[2], 1, 0, 0, 0, 0, 360, 0, 0)
-				miscSound_set[3]:play(player:worm(), nil, 100, 1)
+				fart_sync_trigger(player:worm())
 			end
 			if o then
 				if state and w ~= nil then
@@ -1926,19 +2076,24 @@ function common.initWeaponSelection()
 						if o.cur >= selectWeaponCount +1 then --changed, had no +1
 							o.cur = 0
 						end
+						miscSound_set[4]:play(0,0,100,1,0)
 					elseif event == Player.Up then
 						o.cur = o.cur - 1
 						if o.cur < 0 then
 							o.cur = selectWeaponCount --changed was -1
 						end
+						miscSound_set[4]:play(0,0,100,1,0)
 					elseif event == Player.Fire then
 						o.pressed = true
 					elseif o.list[o.cur] then
 						if event == Player.Left then
+							miscSound_set[4]:play(0,0,100,1,0)
 							o.list[o.cur] = o.list[o.cur]:prev()
 						elseif event == Player.Right then
+							miscSound_set[4]:play(0,0,100,1,0)
 							o.list[o.cur] = o.list[o.cur]:next()
 						end
+						
 					elseif o.cur == selectWeaponCount then
 						if event == Player.Left then
 							if cla.cur > 0 then
@@ -1946,12 +2101,14 @@ function common.initWeaponSelection()
 							else
 								cla.cur = cla.lim
 							end
+							miscSound_set[6]:play(0,0,100,1,0)
 						elseif event == Player.Right then
 							if cla.cur < cla.lim then
 								cla.cur = cla.cur  + 1
 							else
 								cla.cur = 0
 							end
+							miscSound_set[6]:play(0,0,100,1,0)
 						end
 					end
 				else
@@ -1970,16 +2127,16 @@ function common.initWeaponSelection()
 		end
 		
 		local obj_lupinetail = {}
-obj_lupinetail[0] = {}
-obj_lupinetail[0][0] = load_particle("lupine_race_0_0.obj")
-obj_lupinetail[0][1] = load_particle("lupine_race_0_1.obj")
-obj_lupinetail[0][2] = load_particle("lupine_race_0_1.obj")
-obj_lupinetail[0][3] = load_particle("lupine_race_0_2.obj")
-obj_lupinetail[0][4] = load_particle("lupine_race_0_2.obj")
-obj_lupinetail[0][5] = load_particle("lupine_race_0_3.obj")
-obj_lupinetail[0][6] = load_particle("lupine_race_0_3.obj")
-obj_lupinetail[0][7] = load_particle("lupine_race_0_0.obj")
-obj_lupinetail[0][8] = load_particle("lupine_race_0_0.obj")
+		obj_lupinetail[0] = {}
+		obj_lupinetail[0][0] = load_particle("lupine_race_0_0.obj")
+		obj_lupinetail[0][1] = load_particle("lupine_race_0_1.obj")
+		obj_lupinetail[0][2] = load_particle("lupine_race_0_1.obj")
+		obj_lupinetail[0][3] = load_particle("lupine_race_0_2.obj")
+		obj_lupinetail[0][4] = load_particle("lupine_race_0_2.obj")
+		obj_lupinetail[0][5] = load_particle("lupine_race_0_3.obj")
+		obj_lupinetail[0][6] = load_particle("lupine_race_0_3.obj")
+		obj_lupinetail[0][7] = load_particle("lupine_race_0_0.obj")
+		obj_lupinetail[0][8] = load_particle("lupine_race_0_0.obj")
 		
 		function bindings.playerUpdate(player)
 			local o = player:data().weaponSelection
@@ -1990,6 +2147,16 @@ obj_lupinetail[0][8] = load_particle("lupine_race_0_0.obj")
 				player:data().worm_moving_timer = round(player:data().worm_moving_timer,3)
 				if tonumber(player:data().worm_moving_timer) >= 8 then
 					player:data().worm_moving_timer = 1
+					local xpls, yplx = player:worm():spd()
+					if (player:worm():is_changing()) or (xpls >= -0.2 and xpls <= 0.2) then
+						if player:data().worm_moving_timer_flag then
+						player:data().worm_moving_timer_flag = false
+						player:data().worm_moving_timer = 0
+						end
+					end
+					lupine_sync_trigger(player:worm())
+					--LUPINEMOVE
+					
 				end
 				--print(round(player:data().worm_moving_timer))
 			end
@@ -2142,9 +2309,9 @@ obj_lupinetail[0][8] = load_particle("lupine_race_0_0.obj")
 						elseif (player:data().raceSelection.cur == 4) then
 							if get_name_colour(player:name()) <= 15 then
 								if (player:worm():angle() == 360) then
-									player:worm():shoot(obj_lupinetail[get_name_colour(player:name())][round(tonumber(player:data().worm_moving_timer))%14], 1, 0.01, 0, 0, 0, 0, 1, 0)
+									player:worm():shoot(obj_lupinetail[get_name_colour(player:name())%1][round(tonumber(player:data().worm_moving_timer))%14], 1, 0.01, 0, 0, 0, 0, 1, 0)
 								else
-									player:worm():shoot(obj_lupinetail[get_name_colour(player:name())][round(tonumber(player:data().worm_moving_timer))%14], 1, 0.01, 0, 0, 0, 0, 0, 0)
+									player:worm():shoot(obj_lupinetail[get_name_colour(player:name())%1][round(tonumber(player:data().worm_moving_timer))%14], 1, 0.01, 0, 0, 0, 0, 0, 0)
 								end
 							else
 								if (player:worm():angle() == 360) then
@@ -2178,8 +2345,11 @@ obj_lupinetail[0][8] = load_particle("lupine_race_0_0.obj")
 				elseif o.cur == selectWeaponStart then
 					if player:worm():current_weapon() ~= nil then
 						player:select_weapons(o.list)
-						player:data().weaponSelection = nil --GDSTART SYNC
+						player:data().weaponSelection = nil --GDSTART SYNC GAME START HERE
 						race_sync_trigger(player:worm())
+						player:data().glowFlag = nil
+						player:data().glow = nil
+						miscSound_set[5]:play(0,0,100,1,0)
 					end
 				elseif o.cur == selectWeaponStart + 1 then
 					player:data().raceSelection.cur = math.random(0, player:data().raceSelection.lim)
@@ -2214,7 +2384,9 @@ obj_lupinetail[0][8] = load_particle("lupine_race_0_0.obj")
 end
 
 function bindings.wormDeath(worm)
-	print("TELEK: Death detected")
+	if tel_debug == 1 then
+		print("TELEK-DEBUG: Death detected: [" .. worm:player():name() .. "]")
+	end
 end
 
 function bindings.playerInit(player)
@@ -2223,7 +2395,7 @@ function bindings.playerInit(player)
 	raceList[1] = "Dragon"
 	raceList[2] = "Shark"
 	raceList[3] = "Phantom"
-	raceList[4] = "Lupine" --Ears and small tail, voice
+	raceList[4] = "Lupine(Buggy)" --Ears and small tail, voice
 	raceList[5] = "Feline(Incomplete)" --Whiskers, tail, ears, voice
 	raceList[6] = "Raccoon(Incomplete)" --Mask, tail, voice
 	raceList[7] = "Ursine(Incomplete)" --Bear Ears, voice
@@ -2245,12 +2417,14 @@ function bindings.playerInit(player)
 end
 
 function bindings.playerNetworkInit(player, connID)
-	print("Client detected: [" .. player:name() .. "] connID: " .. connID)
+	if tel_debug == 1 then
+		print("TELEK-DEBUG: Client detected: [" .. player:name() .. "] connID: " .. connID)
+	end
 end
 
 function common.init(options)
 	if options == nil then
-		print("TELEK-FIX: Null options detected. Error is fixed now.")
+		print("TELEK-FIX: Null options detected. Error is fixed now. Please be aware, while in this mode, you're unable to host or play telek online.")
 		options = {hideEnemyHealth = true, hideNames = true}
 	end
 	common.initHUD(options)

@@ -11,8 +11,9 @@ acceleration = 0.4485
 max_speed = 0.4485
 
 on timer(33)
- shoot_particles ( greendragonhead.obj , 1 , 0.0001, 0, 0, 0, 0, 7, 1)
-  shoot_particles ( greendragonhead.obj , 1 , 0.0001, 0, 0, 0, 0, 8, 1)
+#shoot_particles ( greendragonhead.obj , 1 , 0.0001, 0, 0, 0, 0, 8, 1)
+#shoot_particles ( greendragonhead.obj , 1 , 0.0001, 0, 0, 0, 0, 7, 1)
+ run_script(telek.zegian_head_fix)
  remove()
 
 on timer( 22, max_trigger = 1 )
