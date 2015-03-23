@@ -2154,7 +2154,9 @@ function common.initWeaponSelection()
 						player:data().worm_moving_timer = 0
 						end
 					end
-					lupine_sync_trigger(player:worm())
+					if player:data().raceSelection.cr == 4 then
+						lupine_sync_trigger(player:worm())
+					end
 					--LUPINEMOVE
 					
 				end
