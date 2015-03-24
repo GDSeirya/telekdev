@@ -1,5 +1,5 @@
 name = "Achilles Shotgun LS969"
-skin = weapon_enhanced.png
+skin = weapon_achilles.png
 sync_shot = 1
 sync_reload = false
 ammo = 1

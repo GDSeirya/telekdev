@@ -1,5 +1,5 @@
 name = "Anaconda"
-skin = weapon_enhanced.png
+skin = weapon_anaconda.png
 reload_time = 70
 sync_shot = true
 sync_reload = false
