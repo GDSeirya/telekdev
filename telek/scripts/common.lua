@@ -168,6 +168,8 @@ telekicon_set[60] = sprites_load("telekicon_blarpa")
 telekicon_set[61] = sprites_load("telekicon_missile")
 telekicon_set[62] = sprites_load("telekicon_wavecannon")
 telekicon_set[63] = sprites_load("telekicon_lokishotgun")
+telekicon_set[64] = sprites_load("telekicon_elaser")
+telekicon_set[65] = sprites_load("telekicon_eminirockets")
 
 tel_wallblood = 1
 tel_debug = 0
@@ -922,6 +924,8 @@ function common.initHUD(options)
 					wname ~= "Electrokinesis Agility" and
 					wname ~= "Electrokinesis Persistance" and
 					wname ~= "Enhanced MINIGUN" and
+					wname ~= "Enhanced LASER" and
+					wname ~= "Enhanced MINI ROCKETS" and
 					wname ~= "Experimental Sand" and
 					wname ~= "Hatred Ray" and
 					wname ~= "Icarus" and
@@ -1057,12 +1061,16 @@ function common.initHUD(options)
 					telekicon_set[60]:render(bitmap, 0, bitmap:w()-10, 23)
 				elseif ( wname == "Enhanced LARPA" ) then
 					telekicon_set[20]:render(bitmap, 0, bitmap:w()-10, 23)
+				elseif ( wname == "Enhanced LASER" ) then
+					telekicon_set[64]:render(bitmap, 0, bitmap:w()-10, 23)
 				elseif ( wname == "Enhanced MINIGUN" ) then
 					if player:name() == "GD" then
 					telekicon_set[1]:render(bitmap, 0, bitmap:w()-10, 23)
 					else
 					telekicon_set[21]:render(bitmap, 0, bitmap:w()-10, 23)
 					end
+				elseif ( wname == "Enhanced MINI ROCKETS" ) then
+					telekicon_set[65]:render(bitmap, 0, bitmap:w()-10, 23)
 				elseif ( wname == "Enhanced MISSILE" ) then
 					telekicon_set[61]:render(bitmap, 0, bitmap:w()-10, 23)
 				elseif ( wname == "Experimental Sand" ) then
@@ -1530,7 +1538,7 @@ function common.initWeaponSelection()
 							weaponRangerColor = color(26, 147, 6)
 							weaponAoeSize = "Normal"
 							weaponAoeSizeColor = color(26, 147, 6)
-							weaponDesc = mySplit("Description is missing.", "•")
+							weaponDesc = mySplit("A technique in which the user can manipulate•electricity. The strength of this ability is•enough to shock an entire team to death. This•particular style focuses on speed, having no•time to ionize enivoronment. This results the•electrical charges dissipating faster.•It is unknown where this technique came to•be, but it is commonly said that it originated•from ancient dragons as they were known have•mastery over hurricanes and storms.•Presently, many dragons have mastery over•electrical energy. A clan of dragons known as•the \"Voices of Lightning\" demonstrate•prowess in this ability to the point they could•manipulate the colour of their lightning to any•as they wish.", "•")
 						elseif (player:data().weaponSelecto == "Electrokinesis Persistance") then
 							weaponStrength = "Destructive"
 							weaponStrengthColor = color(251, 62, 141)
@@ -1550,7 +1558,7 @@ function common.initWeaponSelection()
 							weaponRangerColor = color(26, 147, 6)
 							weaponAoeSize = "Large"
 							weaponAoeSizeColor = color(252, 208, 11)
-							weaponDesc = mySplit("Description is missing.", "•")
+							weaponDesc = mySplit("It maintains nice trajectory while being heavy.", "•")
 						elseif (player:data().weaponSelecto == "Enhanced BOUNCY LARPA") then
 							weaponStrength = "Normal"
 							weaponStrengthColor = color(26, 147, 6)
@@ -1560,7 +1568,7 @@ function common.initWeaponSelection()
 							weaponRangerColor = color(26, 147, 6)
 							weaponAoeSize = "N/A"
 							weaponAoeSizeColor = color(170, 170, 170)
-							weaponDesc = mySplit("Description is missing.", "•")
+							weaponDesc = mySplit("A modified larpa that bounces off walls•instead. A trade off is that it does not travel•very far as well as its rate of fire.", "•")
 						elseif (player:data().weaponSelecto == "Enhanced LARPA") then
 							weaponStrength = "Normal"
 							weaponStrengthColor = color(26, 147, 6)
@@ -1570,7 +1578,17 @@ function common.initWeaponSelection()
 							weaponRangerColor = color(26, 147, 6)
 							weaponAoeSize = "N/A"
 							weaponAoeSizeColor = color(170, 170, 170)
-							weaponDesc = mySplit("Description is missing.", "•")
+							weaponDesc = mySplit("Basically a tactical assault weapon that drops•particles in its wake as it moves. It can ward•foes away from their cover.", "•")
+						elseif (player:data().weaponSelecto == "Enhanced LASER") then
+							weaponStrength = "Normal"
+							weaponStrengthColor = color(26, 147, 6)
+							weaponRoF = "Subsonic"
+							weaponRoFColor = color(76, 19, 157)
+							weaponRanger = "Far"
+							weaponRangerColor = color(252, 208, 11)
+							weaponAoeSize = "N/A"
+							weaponAoeSizeColor = color(170, 170, 170)
+							weaponDesc = mySplit("Not as useful for drilling holes in the ground.•It'll hurt if you manage to keep the laser on•your foe. Nothing to special about this gun•otherwise.", "•")
 						elseif (player:data().weaponSelecto == "Enhanced MINIGUN") then
 							weaponStrength = "Normal"
 							weaponStrengthColor = color(26, 147, 6)
@@ -1580,7 +1598,17 @@ function common.initWeaponSelection()
 							weaponRangerColor = color(252, 208, 11)
 							weaponAoeSize = "N/A"
 							weaponAoeSizeColor = color(170, 170, 170)
-							weaponDesc = mySplit("Description is missing.", "•")
+							weaponDesc = mySplit("Stronger than the chaingun. Pretty much•renders the chaingun obsolete, has faster•rate of fire, although slightly inaccurate.", "•")
+						elseif (player:data().weaponSelecto == "Enhanced MINI ROCKETS") then
+							weaponStrength = "Normal"
+							weaponStrengthColor = color(26, 147, 6)
+							weaponRoF = "Rapid"
+							weaponRoFColor = color(251, 62, 141)
+							weaponRanger = "Far"
+							weaponRangerColor = color(252, 208, 11)
+							weaponAoeSize = "Mini"
+							weaponAoeSizeColor = color(255, 255, 255)
+							weaponDesc = mySplit("Compact, easy to use, fast firing and dirt\•obliterating.", "•")
 						elseif (player:data().weaponSelecto == "Enhanced MISSILE") then
 							weaponStrength = "Destructive"
 							weaponStrengthColor = color(251, 62, 141)
@@ -1590,7 +1618,7 @@ function common.initWeaponSelection()
 							weaponRangerColor = color(26, 147, 6)
 							weaponAoeSize = "Large"
 							weaponAoeSizeColor = color(252, 208, 11)
-							weaponDesc = mySplit("Description is missing.", "•")
+							weaponDesc = mySplit("Great to use to hunt down your pesky enemies.•Better if the area you fire this in is quite•open.", "•")
 						elseif (player:data().weaponSelecto == "Experimental Sand") then
 							weaponStrength = "N/A"
 							weaponStrengthColor = color(170, 170, 170)
@@ -1610,7 +1638,7 @@ function common.initWeaponSelection()
 							weaponRangerColor = color(26, 147, 6)
 							weaponAoeSize = "Large"
 							weaponAoeSizeColor = color(252, 208, 11)
-							weaponDesc = mySplit("This shotgun fires a high-power explosion that•destroys everything in it's path. Due to the•nature of the heat generated by the explosion,•it condenses rather than expanding in small•areas.• •This is the last shotgun manufactured by•Torque Industries before going bankrupt.•From the interview with Torque's CEO: \"The•Fallout Shotgun, named for it's effective use•in the event of a fallout, and not for causing•them, is guaranteed safe and can be used on\•wildlife with no traces of radiation or burns.\"• •NOTE: Subject to change", "•")
+							weaponDesc = mySplit("This shotgun fires a high-power explosion that•destroys everything in it's path. Due to the•nature of the heat generated by the explosion,•it condenses rather than expanding in small•areas.• •This is the last shotgun manufactured by•Torque Industries before going bankrupt.•From the interview with Torque's CEO: \"The•Fallout Shotgun, named for it's effective use•in the event of a fallout, and not for causing•them, is guaranteed safe and can be used on\•wildlife with no traces of radiation or burns.\"• •This gun came with full body shock dampers.•Wow.", "•")
 						elseif (player:data().weaponSelecto == "Garuda's Wing") then
 							weaponStrength = "Strong"
 							weaponStrengthColor = color(252, 208, 11)
@@ -1624,8 +1652,8 @@ function common.initWeaponSelection()
 						elseif (player:data().weaponSelecto == "Gemini") then
 							weaponStrength = "Powerful"
 							weaponStrengthColor = color(255, 164, 5)
-							weaponRoF = "Quick"
-							weaponRoFColor = color(255, 164, 5)
+							weaponRoF = "Manual - Quick"
+							weaponRoFColor = color(220, 36, 31)
 							weaponRanger = "Normal"
 							weaponRangerColor = color(26, 147, 6)
 							weaponAoeSize = "N/A"
@@ -2154,7 +2182,7 @@ function common.initWeaponSelection()
 						player:data().worm_moving_timer = 0
 						end
 					end
-					if player:data().raceSelection.cr == 4 then
+					if player:data().raceSelection.cur == 4 then
 						lupine_sync_trigger(player:worm())
 					end
 					--LUPINEMOVE

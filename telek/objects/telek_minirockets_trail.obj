@@ -1,0 +1,14 @@
+
+gravity = 0.00
+damping = 0.97
+sprite = telek_minirocketsfade.png
+anim_duration = 10
+anim_type = right_once
+render_layer = 3
+col_layer = -1
+
+on ground_collision()
+ remove()
+
+on timer(8)
+ remove()

@@ -1,0 +1,5 @@
+name = "Enhanced LASER"
+skin = weapon_enhanced.png
+
+on primary_shoot()
+ shoot_particles ( laser.obj , 1 , 1, 0, 0, 0, 0, 0, 5)
