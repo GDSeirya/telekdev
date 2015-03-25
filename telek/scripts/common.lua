@@ -173,6 +173,7 @@ telekicon_set[65] = sprites_load("telekicon_eminirockets")
 
 tel_wallblood = 1
 tel_debug = 0
+local tel_weapon_error = 0
 
 ------------RACE SYNCING------------
 local fart_sync_go = network_player_event("fart_sync_go", function(self, player, data)
@@ -1198,7 +1199,7 @@ function common.initHUD(options)
 			
 			elseif (worm:player():data().showGUI == 1)  then
 				local w = worm:current_weapon()
-				if w ~= nil then
+				if w ~= nil and tel_weapon_error ~= 1 then
 				hudFont:render( bitmap, "Make your selection.", bitmap:w()/2, 25, color(255, 255, 255), Font.Shadow + Font.CenterH )
 				end
 		end --HERE IS GUI
@@ -1313,7 +1314,7 @@ function common.initWeaponSelection()
 					i = i + 1
 				end
 				local w = worm:current_weapon()
-				if w ~= nil then
+				if w ~= nil and tel_weapon_error ~= 1 then
 				drawRow("Randomize")
 				
 				while i <= maxSelectableWeapons do
@@ -1325,8 +1326,8 @@ function common.initWeaponSelection()
 				local w = worm:current_weapon()
 				else
 					local hudFont = fonts.liero
-					hudFont:render( bitmap, "Weapon number error detected. Please rejoin the server to fix the error.", bitmap:w()/2, 35, color(255, 0, 0), Font.Shadow + Font.CenterH )
-					hudFont:render( bitmap, "This error generally occurs when you join a server from another mod.", bitmap:w()/2, 45, color(255, 0, 0), Font.Shadow + Font.CenterH )
+					hudFont:render( bitmap, "Weapon number error detected. Please rejoin or restart map.", bitmap:w()/2, 35, color(255, 0, 0), Font.Shadow + Font.CenterH )
+					hudFont:render( bitmap, "This error generally occurs when you start a telek game from another mod.", bitmap:w()/2, 45, color(255, 0, 0), Font.Shadow + Font.CenterH )
 				end
 				if (o.cur == 12 and bitmap:w() >=320) then
 					--RACE INFO HERE
@@ -2098,7 +2099,7 @@ function common.initWeaponSelection()
 				fart_sync_trigger(player:worm())
 			end
 			if o then
-				if state and w ~= nil then
+				if state and w ~= nil and tel_weapon_error ~= 1 then
 					if event == Player.Down then
 						o.cur = o.cur + 1
 						if o.cur >= selectWeaponCount +1 then --changed, had no +1
@@ -2456,6 +2457,11 @@ function common.init(options)
 	if options == nil then
 		print("TELEK-FIX: Null options detected. Error is fixed now. Please be aware, while in this mode, you're unable to host or play telek online.")
 		options = {hideEnemyHealth = true, hideNames = true}
+	end
+	if (console.sv_max_weapons ~= "10") then
+		console.sv_max_weapons = 10
+		tel_weapon_error = 1
+		print("TELEK-FIX: Error detected, weapon select error. Locking weapon select screen. Please restart the map or server.")
 	end
 	common.initHUD(options)
 	common.initChat(options)

@@ -200,6 +200,14 @@ CHANGELOG from 2.9 to 3.0
 		-Dragon
 		-Shark
 		-Phantom
+		-Lupine
+		-Feline
+		-Raccoon
+		-Ursine
+		-Rabbit
+		-Rattus
+		-Reptillian
+		-Avian
 			=Races colours are determined by the colour of the first 3 characters of the player name. k02Name makes the race colour red.
 	=Ascii Art init
 	=Added Enhanced Minigun Easteregg
@@ -207,6 +215,9 @@ CHANGELOG from 2.9 to 3.0
 	=Added Flashlight
 	=Added Aim Compass
 	=Added Reload Checking Device GUI
+	=Added Bimmy Mode
+	=Added GD Mode
+	=Added Debug Mode
 
 -LUA Changes
 	=Added keys to sync classes online if required (Press M to sync races online)
@@ -214,6 +225,7 @@ CHANGELOG from 2.9 to 3.0
 		-Server weapon bugs fixed
 		-Split screen hide gui is fixed
 		-Various misc bugs fixed
+		-Fixed single player broken weapons glitch
 
 -GUI Changes
 	=Added weapon icons
@@ -231,6 +243,7 @@ CHANGELOG from 2.9 to 3.0
 	=Added Shaeiki
 	=Added Wave Cannon
 	=Added Loki Shotgun
+	=Added Enhanced MINI ROCKETS
 	
 -Weapon Changes
 	=Achilles Shotgun is buffed, now leaves flames and flame fragments at close range
@@ -249,7 +262,7 @@ CHANGELOG from 2.8 to 2.9
 -I'm back 2015! GD .aka (alias)Protoss Archon, Griddo, GreatDragon, GamutDragon
 
 -General Changes
-	=Collision layers are mostly modified bteween 0 and 2 and one set at 7.	
+	=Collision layers are mostly modified between 0 and 2 and one set at 7.	
 	=Telek Aim Physics updated
 	=Player gibs last slightly longer
 	=10 weapons
