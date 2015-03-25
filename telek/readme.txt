@@ -257,6 +257,7 @@ CHANGELOG from 2.9 to 3.0
 	=Shiron Wing Tornado Wing is now alpha channel instead of additive
 	=Anaconda is buffed, reloads faster, does more damage, no longer sensitive to popping
 	=Fixed No Guard Live spark spam
+	=Zegian head fix
 
 CHANGELOG from 2.8 to 2.9
 -I'm back 2015! GD .aka (alias)Protoss Archon, Griddo, GreatDragon, GamutDragon
