@@ -5,6 +5,10 @@ render_layer = 8
 blender = add
 col_layer = 1
 alpha = 255
+health = 1
+
+on death()
+ remove()
 
 on ground_collision()
  apply_map_effect( laserhole.mfx )

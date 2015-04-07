@@ -8,7 +8,7 @@ on death()
  remove()
 
 on ground_collision()
- play_sound_static( [icygglassbreakage.wav], 50 )
+ play_sound_static( [icygglassbreakage.wav], 75 )
  shoot_particles ( telekiceshardi9.obj, 0 , 1, 1.5, 1, 0, 360, 0, 0)
  shoot_particles ( telekiceshardi10.obj, 0 , 1, 1.5, 1, 0, 360, 0, 0)
  shoot_particles ( telekiceshardi11.obj, 0 , 1, 1.5, 1, 0, 360, 0, 0)

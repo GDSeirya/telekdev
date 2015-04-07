@@ -13,6 +13,10 @@ render_layer = 5
 anim_duration = 50
 anim_type = ping_pong
 repeat = 2
+health = 1
+
+on death()
+ remove()
 
 on timer(1000,50)
  play_sound( bubblepopplaorasa.wav, 100, 1, 0.1 )

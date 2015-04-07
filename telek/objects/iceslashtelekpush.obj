@@ -5,7 +5,7 @@ invisible = 1
 on timer(1)
  remove()
 
-on detect_range(25, 1, [0,1,2,7])
+on detect_range(25, 0, [0,1,2,7])
  push( 0.01 )
 
 on detect_range(25, 0)

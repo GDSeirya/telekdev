@@ -436,7 +436,7 @@ end
 
 console_register_control("RELOAD_TIMER", function(plr,s)
 		if s then
-			if plr ~= nil then
+			if plr ~= nil and plr:data().weaponSelection == nil then
 				if plr:worm() ~= nil then
 					if plr:worm():health() > 0 then
 						--print(plr:worm():current_weapon():type():name())
@@ -513,7 +513,7 @@ end
 
 console_register_control("FLASHLIGHT", function(plr,s)
 if s then
-	if plr ~= nil then
+	if plr ~= nil and plr:data().weaponSelection == nil then
 		if plr:data().torch == 0 then
 			plr:data().torch = 1
 		else
@@ -527,8 +527,8 @@ end)
 console_register_control("SYNC_RACE", function(plr,s)
 if s then
 	if plr ~= nil then
-		if plr:data().raceSelection.cur ~= nil then
-			miscSound_set[2]:play(player:worm(), nil, 100, 1)
+		if plr:data().raceSelection.cur ~= nil and plr:data().weaponSelection == nil then
+			miscSound_set[2]:play(plr:worm(), nil, 100, 1)
 			race_sync_trigger(plr:worm())
 		end
 	end
@@ -1345,7 +1345,7 @@ function common.initWeaponSelection()
 						elseif player:data().raceSelection.cur == 3 then
 							raceDesc = mySplit("Little is known about the Phantom. The•phantom is often described to be a•supernatural race, akin to a ghost. They have a•chilling aura that is even visible to the naked•eye.•It feeds on other's life force to sustain itself•which consequently makes it a sinister entity.•It is able to reanimate corpses to use as its•corporeal form to kill others for its feeding.", "•")
 						elseif player:data().raceSelection.cur == 4 then
-							raceDesc = mySplit("Lupines, generally a social beast-folk, often•seen civilized. They're covered in fur, making•them comfy in colder weathers. They're not•unintelligent in the slightest, generally. They•can speak and also communicate non-verbally•and convey messages with little words. They•can be qutie xenophobic, but it can vary. Very•few commoners would dare pit against them.•They can often be mistaken for lycanthropes.", "•")
+							raceDesc = mySplit("Lupines generally are around forests, often•seen civilized. They're covered in fur, making•them resistant to colder weathers. Often•times, Lupines are a social beast folk, but are•rather xenophobic around other races, leading•to acts of misdirected violence. They often•speak with little words or not at all, conveying•messages silently. They can often be mistaken•for lycanthropes", "•")
 						else
 							raceDesc = mySplit("Unknown.•No description found.", "•")
 						end
@@ -1801,8 +1801,8 @@ function common.initWeaponSelection()
 							weaponAoeSizeColor = color(251, 62, 141)
 							weaponDesc = mySplit("Description is missing.", "•")
 						elseif (player:data().weaponSelecto == "Naigez's Explosive Bacteria") then
-							weaponStrength = "Low"
-							weaponStrengthColor = color(98, 164, 216)
+							weaponStrength = "Destructive"
+							weaponStrengthColor = color(251, 62, 141)
 							weaponRoF = "Sluggish"
 							weaponRoFColor = color(255, 255, 255)
 							weaponRanger = "Normal"
@@ -1953,8 +1953,8 @@ function common.initWeaponSelection()
 						elseif (player:data().weaponSelecto == "Unicorn's Horn") then
 							weaponStrength = "Terminal"
 							weaponStrengthColor = color(76, 19, 157)
-							weaponRoF = "Subsonic"
-							weaponRoFColor = color(76, 19, 157)
+							weaponRoF = "Normal"
+							weaponRoFColor = color(26, 147, 6)
 							weaponRanger = "Melee"
 							weaponRangerColor = color(255, 255, 255)
 							weaponAoeSize = "Enormous"
