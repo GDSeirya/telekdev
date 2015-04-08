@@ -2176,13 +2176,7 @@ function common.initWeaponSelection()
 				player:data().worm_moving_timer = round(player:data().worm_moving_timer,3)
 				if tonumber(player:data().worm_moving_timer) >= 8 then
 					player:data().worm_moving_timer = 1
-					local xpls, yplx = player:worm():spd()
-					if (player:worm():is_changing()) or (xpls >= -0.2 and xpls <= 0.2) then
-						if player:data().worm_moving_timer_flag then
-						player:data().worm_moving_timer_flag = false
-						player:data().worm_moving_timer = 0
-						end
-					end
+					
 					if player:data().raceSelection.cur == 4 then
 						lupine_sync_trigger(player:worm())
 					end

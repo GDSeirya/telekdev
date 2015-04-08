@@ -148,47 +148,46 @@ Artist:
 -Peedle
 
 Writer:
--Peedle
 -GD
+-Peedle
 
 Debugging:
--rubyprojectgoblin@hotmail.com
 -Comser Forum
--Phase_Archer
--GreatDragon
 -ninjaspud
 -Peedle
+-Phase_Archer
 
 Weapon Inspirist:
--Zegian
--GreatDragon
--Silveron
--ninjaspud
 -Peedle
+-Silveron
+-Zegian
+-ninjaspud
+-Ayleeyen
 
 Special Thanks to:
--Silveron
--Ellywu2
--pixietricks
 -Comser Forum
+-Ellywu2
 -Peedle
+-pixietricks
+-Silveron
 
 Resources used and credited:
--Blizzard
--Valve
--ChaosUT
--EnterBrain
--Konami
--Capcom
--Nintendo
--Square Soft (Square Enix)
--Epic Games
--DreamWorks
 -Amazing Studios
--sindalf [Doom - Needler Script] ~ ( I hope he doesn't mind )
--Melty Blood
+-Blizzard
+-Capcom
+-ChaosUT
+-DreamWorks
+-EnterBrain
+-Epic Games
 -Irem (R-Type)
+-Konami
+-Matrix Software
+-Melty Blood
+-Nintendo
+-sindalf [Doom - Needler Script] ~ ( I hope he doesn't mind )
+-Square Soft (Square Enix)
 -Tecmo
+-Valve
 
 CHANGELOG from 2.9 to 3.0
 

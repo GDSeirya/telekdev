@@ -25,6 +25,9 @@ on detect_range(12, 0)
  
 on detect_range(12, 0, [0, 1])
  push ( 0.0055 )
+
+on detect_range(12, 0, [7])
+ custom_event(3)
  
 #on ground_collision()
 # apply_map_effect( borehlargehole.mfx )
